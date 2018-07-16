@@ -12,9 +12,9 @@ namespace GameUnit {
 		virtual ~Scene();
 		void update();
 		virtual void mouseEvent(int event, int x, int y, int flags, void* param)=0;
-		inline void addObject(Object*);
-		inline void removeObject(Object*);
-		inline void pause();
-		inline void goOn();
+		void addObject(Object*);
+		void removeObject(Object*);
+		void pause();
+		void goOn();
 	};
 }

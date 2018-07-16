@@ -115,6 +115,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="box.cpp" />
+    <ClCompile Include="box.h" />
+    <ClCompile Include="FuckScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGameRunner.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -124,7 +127,12 @@
     <ClInclude Include="MainGameRunner.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="TestFile.h" />
     <ClInclude Include="Tools.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="box.jpg" />
+    <Image Include="pic.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

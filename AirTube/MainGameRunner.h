@@ -4,7 +4,7 @@ namespace GameUnit {
 	class MainGameRunner {
 	private:
 		static MainGameRunner*runner;
-		const static int fps = 70;
+		const static int fps = 60;
 
 		Scene*currentScene, *nextScene;
 		MainGameRunner();

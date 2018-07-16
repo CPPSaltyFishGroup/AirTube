@@ -21,19 +21,37 @@
     <Filter Include="源文件\Tools">
       <UniqueIdentifier>{9e8a8f27-d406-4c6e-af3a-2904536dfe11}</UniqueIdentifier>
     </Filter>
+    <Filter Include="资源文件\TestPic">
+      <UniqueIdentifier>{c176f4ff-3d05-44c0-8f46-a50f59b29ac3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\TestFiles">
+      <UniqueIdentifier>{c8d15848-9f61-4471-af45-5a10db5732a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\TestFiles\box">
+      <UniqueIdentifier>{4c21539c-8a3d-4fa5-9c7b-1f46d9766842}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>源文件\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>源文件\Object</Filter>
     </ClCompile>
     <ClCompile Include="MainGameRunner.cpp">
       <Filter>源文件\MainGameRunner</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>源文件\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="box.cpp">
+      <Filter>源文件\TestFiles\box</Filter>
+    </ClCompile>
+    <ClCompile Include="box.h">
+      <Filter>源文件\TestFiles\box</Filter>
+    </ClCompile>
+    <ClCompile Include="FuckScene.cpp">
+      <Filter>源文件\TestFiles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -49,5 +67,16 @@
     <ClInclude Include="Tools.h">
       <Filter>源文件\Tools</Filter>
     </ClInclude>
+    <ClInclude Include="TestFile.h">
+      <Filter>源文件\TestFiles</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="pic.jpg">
+      <Filter>资源文件\TestPic</Filter>
+    </Image>
+    <Image Include="box.jpg">
+      <Filter>资源文件\TestPic</Filter>
+    </Image>
   </ItemGroup>
 </Project>

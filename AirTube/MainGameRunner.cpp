@@ -1,5 +1,6 @@
 #include"MainGameRunner.h"
 #include<ctime>
+//#define DEBUG
 namespace GameUnit {
 
 	MainGameRunner* MainGameRunner::runner = nullptr;
@@ -28,9 +29,13 @@ namespace GameUnit {
 			if (currentScene != nullptr)
 				currentScene->update();
 			target = clock();
+#ifdef DEBUG
+			cv::waitKey(delta);//********************for debug
+#else
 			if(target<=now+delta)
-				cv::waitKey(now + delta - clock());
-			now = target;
+				cv::waitKey(now + delta - target);
+#endif // DEBUG
+			now = clock();
 		}
 	}
 

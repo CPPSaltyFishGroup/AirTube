@@ -8,7 +8,7 @@ namespace GameUnit {
 		Object();
 
 	public:
-		virtual ~Object() = 0;
+		virtual ~Object();
 		virtual void update() = 0;
 		virtual void print(const cv::Mat&canvas) = 0;
 		class Compare {
