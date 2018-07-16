@@ -3,7 +3,7 @@
 #include <opencv2/highgui/highgui.hpp>
 namespace GameUnit {
 	class Object {
-	private:
+	protected:
 		int depth;
 		Object();
 
