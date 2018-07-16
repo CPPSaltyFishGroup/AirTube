@@ -1,5 +1,6 @@
 #include"Scene.h"
 #include"Tools.h"
+#include"MainGameRunner.h"
 typedef std::set<GameUnit::Object*, GameUnit::Object::Compare> set_O;
 namespace GameUnit {
 	using Tools::clamp;
@@ -27,6 +28,7 @@ namespace GameUnit {
 			(*it)->update();
 			(*it)->print(canvas);
 		}
+		imshow(MainGameRunner::getMainGameRunner()->gameName, canvas);
 	}
 	inline void Scene::addObject(Object*object) {
 		images.insert(object);

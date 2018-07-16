@@ -3,15 +3,23 @@
 namespace GameUnit {
 	class MainGameRunner {
 	private:
-		//Scene * currentScene;
-		const static int fps = 70;
 		static MainGameRunner*runner;
+		const static int fps = 70;
+
+		Scene*currentScene, *nextScene;
 		MainGameRunner();
+
 	public:
-		static MainGameRunner* getMainGameRunner();
+		const char*gameName;
 		//~MainGameRunner();
+		static MainGameRunner* getMainGameRunner();
+
 
 		void update();
-		void setScene(Scene*);
+
+		template<typename T>
+		void setScene() {
+			nextScene = new T();
+		}
 	};
 }
