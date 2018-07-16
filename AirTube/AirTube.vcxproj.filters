@@ -18,6 +18,9 @@
     <Filter Include="源文件\Object">
       <UniqueIdentifier>{92da5e67-180b-4351-aa99-c9ac6e9df604}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Tools">
+      <UniqueIdentifier>{9e8a8f27-d406-4c6e-af3a-2904536dfe11}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,6 +42,9 @@
     </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>源文件\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools.h">
+      <Filter>源文件\Tools</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

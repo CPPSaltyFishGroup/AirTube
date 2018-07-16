@@ -5,11 +5,13 @@ namespace GameUnit {
 	private:
 		//Scene * currentScene;
 		const static int fps = 70;
+		static MainGameRunner*runner;
+		MainGameRunner();
 	public:
-		//MainGameRunner();
+		static MainGameRunner* getMainGameRunner();
 		//~MainGameRunner();
 
-		//void update();
-		//void setScene(Scene*);
+		void update();
+		void setScene(Scene*);
 	};
 }

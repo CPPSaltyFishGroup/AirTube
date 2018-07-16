@@ -13,7 +13,8 @@ namespace GameUnit {
 		virtual void print(const cv::Mat&canvas) = 0;
 		class Compare {
 		public:
-			bool operator()(const Object*&, const Object*&)const;
+			typedef Object* Object_ptr;
+			bool operator()(const Object_ptr&, const Object_ptr&)const;
 		};
 	};
 }
