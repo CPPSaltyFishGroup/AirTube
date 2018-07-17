@@ -1,7 +1,12 @@
-﻿  FuckScene.cpp
+﻿  box.cpp
+  box.h
+  FuckScene.cpp
+  main.cpp
   MainGameRunner.cpp
 f:\我在浙大\工程与科研中的c++\project\airtube\airtube\maingamerunner.cpp(43): warning C4244: “参数”: 从“time_t”转换到“int”，可能丢失数据
+  Object.cpp
   Scene.cpp
-  main.cpp
+  Tools.cpp
   正在生成代码...
+x64\Debug\box.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
   AirTube.vcxproj -> F:\我在浙大\工程与科研中的c++\Project\AirTube\x64\Debug\AirTube.exe

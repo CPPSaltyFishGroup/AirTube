@@ -22,7 +22,7 @@ namespace GameUnit {
 	//~MainGameRunner();
 
 	void MainGameRunner::run() {
-		cvSetMouseCallback(gameName, mouseEvent, nullptr);
+		//cvSetMouseCallback(gameName, mouseEvent, nullptr);
 		time_t now=clock(),target;
 		time_t delta = 1000 / fps;
 		for (;;) {
@@ -32,7 +32,7 @@ namespace GameUnit {
 				currentScene = nextScene;
 				nextScene = nullptr;
 			}
-			//cvSetMouseCallback(gameName, mouseEvent, nullptr);
+			cvSetMouseCallback(gameName, mouseEvent, nullptr);
 			if (currentScene != nullptr)
 				currentScene->update();
 			target = clock();

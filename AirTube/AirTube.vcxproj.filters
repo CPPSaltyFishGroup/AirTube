@@ -53,6 +53,9 @@
     <ClCompile Include="FuckScene.cpp">
       <Filter>源文件\TestFiles</Filter>
     </ClCompile>
+    <ClCompile Include="Tools.cpp">
+      <Filter>源文件\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGameRunner.h">
