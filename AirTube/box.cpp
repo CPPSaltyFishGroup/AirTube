@@ -20,7 +20,8 @@ void Box::update() {
 	}
 }
 void Box::print(const Mat&canvas) {
-	Mat cache = canvas(Rect(10,
+	Mat cache = canvas(Rect(
+		Tools::clamp(canvas.cols-box.cols,0,x),
 		Tools::clamp(canvas.rows - box.rows, 0, canvas.rows - height - box.rows),
 		box.cols,
 		box.rows));

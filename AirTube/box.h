@@ -8,6 +8,7 @@ class Box :public Object {
 	int velocity,maxVelocity;
 	int acceleration;
 public:
+	int x;
 	Box();
 	~Box();
 	void update();

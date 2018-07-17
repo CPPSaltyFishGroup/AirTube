@@ -1,5 +1,6 @@
-﻿  MainGameRunner.cpp
-f:\我在浙大\工程与科研中的c++\project\airtube\airtube\maingamerunner.cpp(36): warning C4244: “参数”: 从“time_t”转换到“int”，可能丢失数据
+﻿  FuckScene.cpp
+  MainGameRunner.cpp
+f:\我在浙大\工程与科研中的c++\project\airtube\airtube\maingamerunner.cpp(43): warning C4244: “参数”: 从“time_t”转换到“int”，可能丢失数据
   Scene.cpp
   main.cpp
   正在生成代码...

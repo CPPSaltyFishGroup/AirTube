@@ -9,16 +9,18 @@ namespace GameUnit {
 
 	Scene::Scene() {
 		doUpdate = true;
-		canvas = cv::imread("canvas.jpg");
 		//canvas.cols = 800;
 		//canvas.rows = 640;//could use file reading
 	}
 	Scene::~Scene() {
+		//who new,who delete
+		/*
 		for (set_O::iterator it = images.begin(); it != images.end(); ) {
 			set_O::iterator tt = it++;
 			delete *tt;
 			images.erase(tt);
 		}
+		*/
 	}
 
 	//do update,then print.
@@ -26,8 +28,8 @@ namespace GameUnit {
 		if (!doUpdate)
 			return;
 		using namespace cv;
-		Mat canvasToShow;
-		canvas.copyTo(canvasToShow);
+		Mat canvasToShow=Mat(640,800,CV_8UC3,Scalar(255,255,255));
+		//canvas.copyTo(canvasToShow);
 		Mat cache;
 		for (set_O::iterator it = images.begin(); it != images.end(); ++it) {
 			(*it)->update();

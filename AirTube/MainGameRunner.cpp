@@ -9,6 +9,11 @@ namespace GameUnit {
 		currentScene = nullptr;
 		nextScene = nullptr;
 	}
+
+	void MainGameRunner::mouseEvent(int event, int x, int y, int flags, void* param) {
+		runner->currentScene->mouseEvent(event, x, y, flags, param);
+	}
+
 	MainGameRunner* MainGameRunner::getMainGameRunner() {
 		if (runner == nullptr)
 			runner = new MainGameRunner();
@@ -16,7 +21,8 @@ namespace GameUnit {
 	}
 	//~MainGameRunner();
 
-	void MainGameRunner::update() {
+	void MainGameRunner::run() {
+		cvSetMouseCallback(gameName, mouseEvent, nullptr);
 		time_t now=clock(),target;
 		time_t delta = 1000 / fps;
 		for (;;) {
@@ -26,6 +32,7 @@ namespace GameUnit {
 				currentScene = nextScene;
 				nextScene = nullptr;
 			}
+			//cvSetMouseCallback(gameName, mouseEvent, nullptr);
 			if (currentScene != nullptr)
 				currentScene->update();
 			target = clock();

@@ -4,6 +4,7 @@ namespace GameUnit {
 	class MainGameRunner {
 	private:
 		static MainGameRunner*runner;
+		static void mouseEvent(int event, int x, int y, int flags, void* param);
 		const static int fps = 60;
 
 		Scene*currentScene, *nextScene;
@@ -15,7 +16,7 @@ namespace GameUnit {
 		static MainGameRunner* getMainGameRunner();
 
 
-		void update();
+		void run();
 
 		template<typename T>
 		void setScene() {

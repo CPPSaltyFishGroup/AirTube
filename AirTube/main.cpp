@@ -9,5 +9,5 @@ int main() {
 	MainGameRunner*runner = MainGameRunner::getMainGameRunner();
 	runner->gameName = "HangzhouAirTube";
 	runner->setScene<FuckScene>();
-	runner->update();
+	runner->run();
 }
