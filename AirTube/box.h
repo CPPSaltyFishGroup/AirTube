@@ -4,6 +4,7 @@ using namespace GameUnit;
 using namespace cv;
 class Box :public Object {
 	Mat box;
+	static int newdepth;
 	int height;
 	int velocity,maxVelocity;
 	int acceleration;

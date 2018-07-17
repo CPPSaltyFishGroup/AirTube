@@ -6,9 +6,12 @@
 typedef std::set<GameUnit::Object*, GameUnit::Object::Compare> set_O;
 namespace GameUnit {
 	using Tools::clamp;
+	using cv::Mat;
+	using cv::Scalar;
 
 	Scene::Scene() {
 		doUpdate = true;
+		canvasToShow = Mat(640, 800, CV_8UC3, Scalar::all(255));
 		//canvas.cols = 800;
 		//canvas.rows = 640;//could use file reading
 	}
@@ -28,7 +31,8 @@ namespace GameUnit {
 		if (!doUpdate)
 			return;
 		using namespace cv;
-		Mat canvasToShow=Mat(640,800,CV_8UC3,Scalar(255,255,255));
+		canvasToShow.setTo(Scalar::all(255));
+		//cvSet(canvasToShow., CvScalar(255, 255, 255), nullptr);
 		//canvas.copyTo(canvasToShow);
 		Mat cache;
 		for (set_O::iterator it = images.begin(); it != images.end(); ++it) {

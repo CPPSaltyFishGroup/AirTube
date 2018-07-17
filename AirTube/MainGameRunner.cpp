@@ -31,9 +31,10 @@ namespace GameUnit {
 				delete currentScene;
 				currentScene = nextScene;
 				nextScene = nullptr;
+				currentScene->update();
+				cvSetMouseCallback(gameName, mouseEvent, nullptr);
 			}
-			cvSetMouseCallback(gameName, mouseEvent, nullptr);
-			if (currentScene != nullptr)
+			else
 				currentScene->update();
 			target = clock();
 #ifdef DEBUG
@@ -43,6 +44,7 @@ namespace GameUnit {
 				cv::waitKey(now + delta - target);
 #endif // DEBUG
 			now = clock();
+			if (cvWaitKey(1) == 27) break;
 		}
 	}
 

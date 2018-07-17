@@ -6,6 +6,7 @@ namespace GameUnit {
 	private:
 		std::set<Object*,Object::Compare>images;
 		bool doUpdate;
+		cv::Mat canvasToShow;
 	public:
 		Scene();
 		virtual ~Scene();

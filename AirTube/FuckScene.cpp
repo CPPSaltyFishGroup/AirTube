@@ -3,7 +3,7 @@
 #include<vector>
 FuckScene::FuckScene() {
 	box = new Box();
-	box->x = 10;
+	box->x = 60;
 	Scene::addObject(box);
 }
 FuckScene::~FuckScene() {
@@ -11,10 +11,10 @@ FuckScene::~FuckScene() {
 		delete *it;
 }
 void FuckScene::mouseEvent(int event, int x, int y, int flags, void* param) {
-	if (event != CV_EVENT_MBUTTONDOWN)
+	if (event != EVENT_LBUTTONDOWN)
 		return;
 	Box*box = new Box();
-	box->x = x/2;
-	boxes.insert(boxes.begin(),box);
-	addObject(box);
+	box->x = x;
+	boxes.insert(boxes.end(),box);
+	Scene::addObject(box);
 }

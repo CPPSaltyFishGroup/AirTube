@@ -6,6 +6,8 @@ Box::Box() {
 	velocity = 15;
 	maxVelocity = 15;
 	acceleration = 1;
+	depth = newdepth++;
+	printf("%d\n", newdepth);
 }
 
 Box::~Box() {
@@ -27,3 +29,4 @@ void Box::print(const Mat&canvas) {
 		box.rows));
 	addWeighted(cache, 0.5, box, 0.5, 0.0, cache);
 }
+int Box::newdepth = 0;
