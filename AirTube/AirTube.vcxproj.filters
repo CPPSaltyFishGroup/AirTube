@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\MainGameRunner">
+      <UniqueIdentifier>{5b92d8e9-f772-43fd-b33c-e5d44d9abc25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Scene">
+      <UniqueIdentifier>{5ce4198c-229f-4b19-ac4e-40b2f1c67e18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Object">
+      <UniqueIdentifier>{92da5e67-180b-4351-aa99-c9ac6e9df604}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Tools">
+      <UniqueIdentifier>{9e8a8f27-d406-4c6e-af3a-2904536dfe11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\TestPic">
+      <UniqueIdentifier>{c176f4ff-3d05-44c0-8f46-a50f59b29ac3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\TestFiles">
+      <UniqueIdentifier>{c8d15848-9f61-4471-af45-5a10db5732a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\TestFiles\box">
+      <UniqueIdentifier>{4c21539c-8a3d-4fa5-9c7b-1f46d9766842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Scene\GameScene">
+      <UniqueIdentifier>{f67017b3-5e36-4f02-b165-91c9a405d29f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>源文件\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGameRunner.cpp">
+      <Filter>源文件\MainGameRunner</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>源文件\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="box.cpp">
+      <Filter>源文件\TestFiles\box</Filter>
+    </ClCompile>
+    <ClCompile Include="box.h">
+      <Filter>源文件\TestFiles\box</Filter>
+    </ClCompile>
+    <ClCompile Include="FuckScene.cpp">
+      <Filter>源文件\TestFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools.cpp">
+      <Filter>源文件\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>源文件\Scene\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="StartScene.cpp">
+      <Filter>源文件\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="background.cpp">
+      <Filter>源文件\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="start.cpp">
+      <Filter>源文件\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="end.cpp">
+      <Filter>源文件\Object</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MainGameRunner.h">
+      <Filter>源文件\MainGameRunner</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>源文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>源文件\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools.h">
+      <Filter>源文件\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="TestFile.h">
+      <Filter>源文件\TestFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>源文件\Scene\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="StartScene.h">
+      <Filter>源文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="background.h">
+      <Filter>源文件\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="start.h">
+      <Filter>源文件\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="end.h">
+      <Filter>源文件\Object</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="pic.jpg">
+      <Filter>资源文件\TestPic</Filter>
+    </Image>
+    <Image Include="box.jpg">
+      <Filter>资源文件\TestPic</Filter>
+    </Image>
+    <Image Include="Start3.jpg">
+      <Filter>资源文件\TestPic</Filter>
+    </Image>
+    <Image Include="结束游戏.png">
+      <Filter>资源文件\TestPic</Filter>
+    </Image>
+    <Image Include="结束游戏2.png">
+      <Filter>资源文件\TestPic</Filter>
+    </Image>
+    <Image Include="重新开始.png">
+      <Filter>资源文件\TestPic</Filter>
+    </Image>
+    <Image Include="重新开始2.png">
+      <Filter>资源文件\TestPic</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

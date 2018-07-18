@@ -1,0 +1,8 @@
+﻿  background.cpp
+  end.cpp
+  start.cpp
+  StartScene.cpp
+  main.cpp
+  正在生成代码...
+x64\Debug\box.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+  AirTube.vcxproj -> C:\Users\枯瞳\AirTube\x64\Debug\AirTube.exe
