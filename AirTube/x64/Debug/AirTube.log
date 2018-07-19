@@ -1,3 +1,30 @@
-﻿  MainGameRunner.cpp
-c:\users\fxb76121200\desktop\airtube\airtube\maingamerunner.cpp(44): warning C4244: “参数”: 从“time_t”转换到“int”，可能丢失数据
-  AirTube.vcxproj -> C:\Users\fxb76121200\Desktop\AirTube\x64\Debug\AirTube.exe
+﻿  box.cpp
+  box.h
+  EndBackground.cpp
+  EndScene.cpp
+  FinishButton.cpp
+  FuckScene.cpp
+  GameScene.cpp
+  main.cpp
+  MainGameRunner.cpp
+c:\users\fxb76121200\desktop\airtube\airtube\maingamerunner.cpp(43): warning C4244: “参数”: 从“time_t”转换到“int”，可能丢失数据
+  Object.cpp
+  plane.cpp
+c:\users\fxb76121200\desktop\airtube\airtube\plane.cpp(46): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+  RestartButton.cpp
+  Scene.cpp
+  Tools.cpp
+  正在生成代码...
+x64\Debug\box.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+box.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::addWeighted(class cv::debug_build_guard::_InputArray const &,double,class cv::debug_build_guard::_InputArray const &,double,double,class cv::debug_build_guard::_OutputArray const &,int)" (?addWeighted@cv@@YAXAEBV_InputArray@debug_build_guard@1@N0NNAEBV_OutputArray@31@H@Z)，该符号在函数 "public: virtual void __cdecl Box::print(class cv::Mat const &)" (?print@Box@@UEAAXAEBVMat@cv@@@Z) 中被引用
+EndBackground.obj : error LNK2001: 无法解析的外部符号 "void __cdecl cv::addWeighted(class cv::debug_build_guard::_InputArray const &,double,class cv::debug_build_guard::_InputArray const &,double,double,class cv::debug_build_guard::_OutputArray const &,int)" (?addWeighted@cv@@YAXAEBV_InputArray@debug_build_guard@1@N0NNAEBV_OutputArray@31@H@Z)
+plane.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::warpAffine(class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_OutputArray const &,class cv::debug_build_guard::_InputArray const &,class cv::Size_<int>,int,int,class cv::Scalar_<double> const &)" (?warpAffine@cv@@YAXAEBV_InputArray@debug_build_guard@1@AEBV_OutputArray@31@0V?$Size_@H@1@HHAEBV?$Scalar_@N@1@@Z)，该符号在函数 "public: virtual void __cdecl Plane::update(void)" (?update@Plane@@UEAAXXZ) 中被引用
+plane.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::circle(class cv::debug_build_guard::_InputOutputArray const &,class cv::Point_<int>,int,class cv::Scalar_<double> const &,int,int,int)" (?circle@cv@@YAXAEBV_InputOutputArray@debug_build_guard@1@V?$Point_@H@1@HAEBV?$Scalar_@N@1@HHH@Z)，该符号在函数 "public: virtual void __cdecl Plane::update(void)" (?update@Plane@@UEAAXXZ) 中被引用
+Scene.obj : error LNK2019: 无法解析的外部符号 "class cv::debug_build_guard::_InputOutputArray const & __cdecl cv::noArray(void)" (?noArray@cv@@YAAEBV_InputOutputArray@debug_build_guard@1@XZ)，该符号在函数 "public: void __cdecl GameUnit::Scene::update(void)" (?update@Scene@GameUnit@@QEAAXXZ) 中被引用
+Scene.obj : error LNK2019: 无法解析的外部符号 "public: class cv::Mat & __cdecl cv::Mat::setTo(class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_InputArray const &)" (?setTo@Mat@cv@@QEAAAEAV12@AEBV_InputArray@debug_build_guard@2@0@Z)，该符号在函数 "public: void __cdecl GameUnit::Scene::update(void)" (?update@Scene@GameUnit@@QEAAXXZ) 中被引用
+Scene.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::imshow(class cv::String const &,class cv::debug_build_guard::_InputArray const &)" (?imshow@cv@@YAXAEBVString@1@AEBV_InputArray@debug_build_guard@1@@Z)，该符号在函数 "public: void __cdecl GameUnit::Scene::update(void)" (?update@Scene@GameUnit@@QEAAXXZ) 中被引用
+Tools.obj : error LNK2019: 无法解析的外部符号 "public: void __cdecl cv::Mat::convertTo(class cv::debug_build_guard::_OutputArray const &,int,double,double)const " (?convertTo@Mat@cv@@QEBAXAEBV_OutputArray@debug_build_guard@2@HNN@Z)，该符号在函数 "class cv::Mat & __cdecl cv::operator*=(class cv::Mat &,double const &)" (??Xcv@@YAAEAVMat@0@AEAV10@AEBN@Z) 中被引用
+Tools.obj : error LNK2019: 无法解析的外部符号 "public: class cv::MatExpr __cdecl cv::Mat::mul(class cv::debug_build_guard::_InputArray const &,double)const " (?mul@Mat@cv@@QEBA?AVMatExpr@2@AEBV_InputArray@debug_build_guard@2@N@Z)，该符号在函数 "int __cdecl Tools::cvAdd4cMat_q(class cv::Mat &,class cv::Mat &,double)" (?cvAdd4cMat_q@Tools@@YAHAEAVMat@cv@@0N@Z) 中被引用
+Tools.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::merge(class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_OutputArray const &)" (?merge@cv@@YAXAEBV_InputArray@debug_build_guard@1@AEBV_OutputArray@31@@Z)，该符号在函数 "int __cdecl Tools::cvAdd4cMat_q(class cv::Mat &,class cv::Mat &,double)" (?cvAdd4cMat_q@Tools@@YAHAEAVMat@cv@@0N@Z) 中被引用
+Tools.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::split(class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_OutputArray const &)" (?split@cv@@YAXAEBV_InputArray@debug_build_guard@1@AEBV_OutputArray@31@@Z)，该符号在函数 "int __cdecl Tools::cvAdd4cMat_q(class cv::Mat &,class cv::Mat &,double)" (?cvAdd4cMat_q@Tools@@YAHAEAVMat@cv@@0N@Z) 中被引用
+C:\Users\fxb76121200\Desktop\AirTube\x64\Debug\AirTube.exe : fatal error LNK1120: 10 个无法解析的外部命令

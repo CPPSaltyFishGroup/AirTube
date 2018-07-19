@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{1B9DE09E-852C-4D31-8A3F-96BD7E2E1228}</ProjectGuid>
     <RootNamespace>AirTube</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -125,6 +125,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGameRunner.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="plane.cpp" />
     <ClCompile Include="RestartButton.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Tools.cpp" />
@@ -136,6 +137,7 @@
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="MainGameRunner.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="Plane.h" />
     <ClInclude Include="RestartButton.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="TestFile.h" />
@@ -145,6 +147,7 @@
     <Image Include="box.jpg" />
     <Image Include="pic.jpg" />
     <Image Include="Start3.jpg" />
+    <Image Include="灰色飞机1.png" />
     <Image Include="结束游戏.png" />
     <Image Include="结束游戏2.png" />
     <Image Include="重新开始.png" />

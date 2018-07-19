@@ -5,7 +5,7 @@ EndBackground::EndBackground()
 	endbackground = imread("Start3.jpg");
 	height = 600;
 	width = 800;
-	depth = 10;
+	depth = 100;
 }
 EndBackground::~EndBackground()
 {}

@@ -6,9 +6,11 @@ EndScene::EndScene()
 	EBG = new EndBackground();
 	RB = new RestartButton();
 	FB = new FinishButton();
+	PL = new Plane("灰色飞机1.png");
 	Scene::addObject(EBG);
 	Scene::addObject(RB);
 	Scene::addObject(FB);
+	Scene::addObject(PL);
 }
 
 EndScene::~EndScene()
@@ -16,6 +18,7 @@ EndScene::~EndScene()
 	delete EBG;
 	delete RB;
 	delete FB;
+	delete PL;
 }
 
 void EndScene::mouseEvent(int event, int x, int y, int flags, void* param)
@@ -35,6 +38,11 @@ void EndScene::mouseEvent(int event, int x, int y, int flags, void* param)
 			RB->setactive(false);
 			FB->setactive(false);
 		}
+		break;
+	case CV_EVENT_LBUTTONDOWN:
+		Plane * oneplane = new Plane("灰色飞机1.png");
+		oneplane->setxy(x, y);
+		Scene::addObject(oneplane);
 		break;
 	}
 }

@@ -24,6 +24,8 @@ void FinishButton::update()
 }
 void FinishButton::print(const Mat& canvas)
 {
+
 	Mat cache = canvas(Rect(x, y, finish.cols, finish.rows));
 	Tools::cvAdd4cMat_q(cache, finish, 1.0);
+	
 }

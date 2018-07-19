@@ -40,11 +40,9 @@ namespace GameUnit {
 #ifdef DEBUG
 			cv::waitKey(delta);//********************for debug
 #else
-			if(target<=now+delta)
-				cv::waitKey(now + delta - target);
+			if(target<now+delta) cv::waitKey(now + delta - target);
 #endif // DEBUG
 			now = clock();
-			if (cvWaitKey(1) == 27) break;
 		}
 	}
 

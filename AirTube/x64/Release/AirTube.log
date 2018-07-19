@@ -1,0 +1,8 @@
+﻿  EndBackground.cpp
+x64\Release\box.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+  正在生成代码
+  2 of 508 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  AirTube.vcxproj -> C:\Users\fxb76121200\Desktop\AirTube\x64\Release\AirTube.exe

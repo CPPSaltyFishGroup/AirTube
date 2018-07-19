@@ -74,6 +74,9 @@
     <ClCompile Include="RestartButton.cpp">
       <Filter>源文件\Object</Filter>
     </ClCompile>
+    <ClCompile Include="plane.cpp">
+      <Filter>源文件\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGameRunner.h">
@@ -106,6 +109,9 @@
     <ClInclude Include="RestartButton.h">
       <Filter>源文件\Object</Filter>
     </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>源文件\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="pic.jpg">
@@ -127,6 +133,9 @@
       <Filter>资源文件\TestPic</Filter>
     </Image>
     <Image Include="重新开始2.png">
+      <Filter>资源文件\TestPic</Filter>
+    </Image>
+    <Image Include="灰色飞机1.png">
       <Filter>资源文件\TestPic</Filter>
     </Image>
   </ItemGroup>
