@@ -13,4 +13,5 @@ public:
 	~Box();
 	void update();
 	void print(const Mat&canva);
+	bool mouseIn(const Point&point);
 };

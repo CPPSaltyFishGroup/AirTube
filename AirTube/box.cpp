@@ -1,11 +1,15 @@
 #include"Box.h"
 #include"Tools.h"
-Box::Box() {
+namespace { int cnt = 0; }
+#include<cstdio>
+Box::Box():Object(cnt++,Point(0,0)) {
 	box = imread("box.jpg");
+	depth = cnt++;
 	height = 0;
 	velocity = 15;
 	maxVelocity = 15;
 	acceleration = 1;
+	printf("%d\n", depth);
 }
 
 Box::~Box() {
@@ -27,3 +31,4 @@ void Box::print(const Mat&canvas) {
 		box.rows));
 	addWeighted(cache, 0.5, box, 0.5, 0.0, cache);
 }
+bool Box::mouseIn(const Point&point) { return false; }

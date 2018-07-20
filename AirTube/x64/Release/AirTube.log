@@ -1,0 +1,10 @@
+﻿  box.cpp
+  box.h
+  FuckScene.cpp
+x64\Release\box.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+  正在生成代码
+  27 of 402 functions ( 6.7%) were compiled, the rest were copied from previous compilation.
+    5 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  AirTube.vcxproj -> F:\我在浙大\工程与科研中的c++\Project\AirTube\x64\Release\AirTube.exe
