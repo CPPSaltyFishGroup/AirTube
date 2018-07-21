@@ -5,19 +5,21 @@
 #define SHOW_PICTURE(picture) \
 {\
 	using cv::Rect;\
+	int x2=MIN(picture.cols, canvas.cols - position.x);\
+	int y2=MIN(picture.rows, canvas.rows - position.y);\
 	Mat bg = canvas(Rect(\
 		MAX(position.x, 0),\
 		MAX(position.y, 0),\
-		MIN(position.x + picture.cols, canvas.cols),\
-		MIN(position.y + picture.rows, canvas.rows))\
-	);\
+		x2,\
+		y2\
+	));\
 	Mat sprt = picture(Rect(\
 		MAX(-position.x, 0),\
 		MAX(-position.y, 0),\
-		MIN(picture.cols, canvas.cols - position.x),\
-		MIN(picture.rows, canvas.rows - position.y)\
+		x2,\
+		y2\
 	));\
-	addWeighted(bg, 0.0, sprt, 1.0, 0.0, bg);\
+	Tools::cvAdd4cMat_q(bg, sprt, 1.0);\
 }
 namespace Tools {
 	//promise origin be in [min,max].

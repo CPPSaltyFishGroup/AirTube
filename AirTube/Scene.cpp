@@ -11,7 +11,7 @@ namespace View{
 
 	Scene::Scene() {
 		doUpdate = true;
-		canvasToShow = Mat(640, 800, CV_8UC4, cvScalarAll(255));
+		canvasToShow = Mat(640, 800, CV_8UC3, Scalar(255,255,255));
 		img = IplImage(canvasToShow);
 		//canvas.cols = 800;
 		//canvas.rows = 640;//could use file reading
@@ -29,7 +29,8 @@ namespace View{
 		if (!doUpdate)
 			return;
 		using namespace cv;
-		cvSet(&img, Scalar::all(255), nullptr);
+		cvSet(&img, Scalar(255,255,255), nullptr);
+		//(*images.begin())->print(canvasToShow);
 		for (set_O::iterator it = images.begin(); it != images.end(); ++it)
 			(*it)->print(canvasToShow);
 		imshow(MainGameRunner::getMainGameRunner()->gameName, canvasToShow);

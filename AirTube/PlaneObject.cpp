@@ -25,4 +25,7 @@ namespace View {
 	void PlaneObject::onClick(bool isLeft) {
 		//to be continued
 	}
+	void PlaneObject::setPosition(const Point&point) {
+		position = point;
+	}
 }
