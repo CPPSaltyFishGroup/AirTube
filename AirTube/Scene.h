@@ -18,8 +18,8 @@ namespace View {
 	public:
 		Scene();
 		virtual ~Scene();
-		void update();
-		virtual void mouseEvent(int event, int x, int y, int flags, void* param)=0;
+		virtual void update();
+		void mouseEvent(int event, int x, int y, int flags, void* param);
 		void addObject(Object*);
 		void removeObject(Object*);
 		void pause();

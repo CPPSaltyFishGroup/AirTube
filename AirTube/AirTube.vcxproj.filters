@@ -9,15 +9,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="源文件\MainGameRunner">
-      <UniqueIdentifier>{5b92d8e9-f772-43fd-b33c-e5d44d9abc25}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Scene">
-      <UniqueIdentifier>{5ce4198c-229f-4b19-ac4e-40b2f1c67e18}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Object">
-      <UniqueIdentifier>{92da5e67-180b-4351-aa99-c9ac6e9df604}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\Tools">
       <UniqueIdentifier>{9e8a8f27-d406-4c6e-af3a-2904536dfe11}</UniqueIdentifier>
     </Filter>
@@ -30,8 +21,68 @@
     <Filter Include="源文件\TestFiles\box">
       <UniqueIdentifier>{4c21539c-8a3d-4fa5-9c7b-1f46d9766842}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\Object\PictureObject">
+    <Filter Include="源文件\View">
+      <UniqueIdentifier>{b383cf62-e4da-4af3-8704-04614a7760c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\MainGameRunner">
+      <UniqueIdentifier>{5b92d8e9-f772-43fd-b33c-e5d44d9abc25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Object">
+      <UniqueIdentifier>{92da5e67-180b-4351-aa99-c9ac6e9df604}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Object\PictureObject">
       <UniqueIdentifier>{f0c0cabc-e603-47af-9df3-c879c233a481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Scene">
+      <UniqueIdentifier>{5ce4198c-229f-4b19-ac4e-40b2f1c67e18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Object\PictureObject\PlaneObject">
+      <UniqueIdentifier>{69d75bb3-f772-42bf-a679-2ed2e0985e03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Object\PictureObject\ToggleObject">
+      <UniqueIdentifier>{938173d0-1ffc-4762-af17-b278feef0813}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Object\CircleObject">
+      <UniqueIdentifier>{edf3685a-32e2-448d-b3ff-ffcdca8891da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\StartScene">
+      <UniqueIdentifier>{10fef2b2-34d3-46c0-8662-35ae68d84ba8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\GameScene">
+      <UniqueIdentifier>{1f95d51a-156c-4730-b0e0-c51044dab2c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\EndScene">
+      <UniqueIdentifier>{d206509c-0401-465f-abf8-dfc777f9677d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Object\LineObject">
+      <UniqueIdentifier>{58c2c6a4-aa4d-496c-8c5b-e21223a391bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Object\PictureObject\BackgroundObjects">
+      <UniqueIdentifier>{21685c5e-a62d-4b14-8cbd-eeb9dcf9e0fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Object\PictureObject\ToggleObject\ButtonObjects">
+      <UniqueIdentifier>{f9a6330e-747f-470c-81c3-56339ae5e875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Object\PictureObject\ToggleObject\ButtonObjects\StartButtonObject">
+      <UniqueIdentifier>{f8135cce-44d4-4c7c-b62a-01555d46bb6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Object\PictureObject\ToggleObject\ButtonObjects\EndButtonObject">
+      <UniqueIdentifier>{2903e3d6-188d-4492-a293-4adeb2ce259d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Object\PictureObject\ToggleObject\ButtonObjects\PauseButtonObject">
+      <UniqueIdentifier>{f7746722-4540-4c41-b85c-d1910b1b69bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Object\TextObject">
+      <UniqueIdentifier>{2b4e9f2f-0470-42fb-b4e6-236d97961aa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Scene\StartScene">
+      <UniqueIdentifier>{2b375399-54da-4325-82bd-613cf2c1c4f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Scene\GameScene">
+      <UniqueIdentifier>{ab6d433e-98a4-491b-b4b4-27c1930b4645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View\Scene\EndScene">
+      <UniqueIdentifier>{c29132d0-b8f8-4904-9ffb-ff85a95c539b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -39,13 +90,13 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
-      <Filter>源文件\Object</Filter>
+      <Filter>源文件\View\Object</Filter>
     </ClCompile>
     <ClCompile Include="MainGameRunner.cpp">
-      <Filter>源文件\MainGameRunner</Filter>
+      <Filter>源文件\View\MainGameRunner</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>源文件\Scene</Filter>
+      <Filter>源文件\View\Scene</Filter>
     </ClCompile>
     <ClCompile Include="box.cpp">
       <Filter>源文件\TestFiles\box</Filter>
@@ -60,18 +111,54 @@
       <Filter>源文件\Tools</Filter>
     </ClCompile>
     <ClCompile Include="PictureObject.cpp">
-      <Filter>源文件\Object\PictureObject</Filter>
+      <Filter>源文件\View\Object\PictureObject</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaneObject.cpp">
+      <Filter>源文件\View\Object\PictureObject\PlaneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ToggleObject.cpp">
+      <Filter>源文件\View\Object\PictureObject\ToggleObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleObject.cpp">
+      <Filter>源文件\View\Object\CircleObject</Filter>
+    </ClCompile>
+    <ClCompile Include="LineObject.cpp">
+      <Filter>源文件\View\Object\LineObject</Filter>
+    </ClCompile>
+    <ClCompile Include="MainBackgroundObject.cpp">
+      <Filter>源文件\View\Object\PictureObject\BackgroundObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundObject.cpp">
+      <Filter>源文件\View\Object\PictureObject\BackgroundObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="StartButtonObject.cpp">
+      <Filter>源文件\View\Object\PictureObject\ToggleObject\ButtonObjects\StartButtonObject</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseButtonObject.cpp">
+      <Filter>源文件\View\Object\PictureObject\ToggleObject\ButtonObjects\PauseButtonObject</Filter>
+    </ClCompile>
+    <ClCompile Include="EndButtonObject.cpp">
+      <Filter>源文件\View\Object\PictureObject\ToggleObject\ButtonObjects\EndButtonObject</Filter>
+    </ClCompile>
+    <ClCompile Include="StartScene.cpp">
+      <Filter>源文件\View\Scene\StartScene</Filter>
+    </ClCompile>
+    <ClCompile Include="EndScene.cpp">
+      <Filter>源文件\View\Scene\EndScene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>源文件\View\Scene\GameScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGameRunner.h">
-      <Filter>源文件\MainGameRunner</Filter>
+      <Filter>源文件\View\MainGameRunner</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>源文件\Scene</Filter>
+      <Filter>源文件\View\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
-      <Filter>源文件\Object</Filter>
+      <Filter>源文件\View\Object</Filter>
     </ClInclude>
     <ClInclude Include="Tools.h">
       <Filter>源文件\Tools</Filter>
@@ -80,7 +167,43 @@
       <Filter>源文件\TestFiles</Filter>
     </ClInclude>
     <ClInclude Include="PictureObject.h">
-      <Filter>源文件\Object\PictureObject</Filter>
+      <Filter>源文件\View\Object\PictureObject</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaneObject.h">
+      <Filter>源文件\View\Object\PictureObject\PlaneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ToggleObject.h">
+      <Filter>源文件\View\Object\PictureObject\ToggleObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleObject.h">
+      <Filter>源文件\View\Object\CircleObject</Filter>
+    </ClInclude>
+    <ClInclude Include="LineObject.h">
+      <Filter>源文件\View\Object\LineObject</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundObject.h">
+      <Filter>源文件\View\Object\PictureObject\BackgroundObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="MainBackgroundObject.h">
+      <Filter>源文件\View\Object\PictureObject\BackgroundObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="StartButtonObject.h">
+      <Filter>源文件\View\Object\PictureObject\ToggleObject\ButtonObjects\StartButtonObject</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseButtonObject.h">
+      <Filter>源文件\View\Object\PictureObject\ToggleObject\ButtonObjects\PauseButtonObject</Filter>
+    </ClInclude>
+    <ClInclude Include="EndButtonObject.h">
+      <Filter>源文件\View\Object\PictureObject\ToggleObject\ButtonObjects\EndButtonObject</Filter>
+    </ClInclude>
+    <ClInclude Include="StartScene.h">
+      <Filter>源文件\View\Scene\StartScene</Filter>
+    </ClInclude>
+    <ClInclude Include="EndScene.h">
+      <Filter>源文件\View\Scene\EndScene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>源文件\View\Scene\GameScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +212,36 @@
     </Image>
     <Image Include="box.jpg">
       <Filter>资源文件\TestPic</Filter>
+    </Image>
+    <Image Include="startbutton1.png">
+      <Filter>资源文件\StartScene</Filter>
+    </Image>
+    <Image Include="startbutton2.png">
+      <Filter>资源文件\StartScene</Filter>
+    </Image>
+    <Image Include="pause1.png">
+      <Filter>资源文件\GameScene</Filter>
+    </Image>
+    <Image Include="pause2.png">
+      <Filter>资源文件\GameScene</Filter>
+    </Image>
+    <Image Include="restart1.png">
+      <Filter>资源文件\EndScene</Filter>
+    </Image>
+    <Image Include="restart2.png">
+      <Filter>资源文件\EndScene</Filter>
+    </Image>
+    <Image Include="endgame1.png">
+      <Filter>资源文件\EndScene</Filter>
+    </Image>
+    <Image Include="endgame2.png">
+      <Filter>资源文件\EndScene</Filter>
+    </Image>
+    <Image Include="exitgame2.png">
+      <Filter>资源文件\StartScene</Filter>
+    </Image>
+    <Image Include="exitgame1.png">
+      <Filter>资源文件\StartScene</Filter>
     </Image>
   </ItemGroup>
 </Project>

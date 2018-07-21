@@ -115,27 +115,61 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BackgroundObject.cpp" />
     <ClCompile Include="box.cpp" />
     <ClCompile Include="box.h" />
+    <ClCompile Include="CircleObject.cpp" />
+    <ClCompile Include="EndButtonObject.cpp" />
+    <ClCompile Include="EndScene.cpp" />
+    <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="LineObject.cpp" />
+    <ClCompile Include="MainBackgroundObject.cpp" />
+    <ClCompile Include="PauseButtonObject.cpp" />
+    <ClCompile Include="PlaneObject.cpp" />
     <ClCompile Include="FuckScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainGameRunner.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="PictureObject.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="StartButtonObject.cpp" />
+    <ClCompile Include="StartScene.cpp" />
+    <ClCompile Include="ToggleObject.cpp" />
     <ClCompile Include="Tools.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BackgroundObject.h" />
+    <ClInclude Include="CircleObject.h" />
+    <ClInclude Include="EndButtonObject.h" />
+    <ClInclude Include="EndScene.h" />
+    <ClInclude Include="GameScene.h" />
+    <ClInclude Include="LineObject.h" />
+    <ClInclude Include="MainBackgroundObject.h" />
+    <ClInclude Include="PauseButtonObject.h" />
+    <ClInclude Include="PlaneObject.h" />
     <ClInclude Include="MainGameRunner.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="PictureObject.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="StartButtonObject.h" />
+    <ClInclude Include="StartScene.h" />
     <ClInclude Include="TestFile.h" />
+    <ClInclude Include="ToggleObject.h" />
     <ClInclude Include="Tools.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="box.jpg" />
+    <Image Include="endgame1.png" />
+    <Image Include="endgame2.png" />
+    <Image Include="exitgame1.png" />
+    <Image Include="exitgame2.png" />
+    <Image Include="pause1.png" />
+    <Image Include="pause2.png" />
     <Image Include="pic.jpg" />
+    <Image Include="restart1.png" />
+    <Image Include="restart2.png" />
+    <Image Include="startbutton1.png" />
+    <Image Include="startbutton2.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

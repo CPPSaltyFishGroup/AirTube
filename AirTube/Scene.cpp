@@ -1,4 +1,5 @@
 #include"Scene.h"
+#include"ToggleObject.h"
 #include"Tools.h"
 #include"MainGameRunner.h"
 #include <opencv2/core/core.hpp>  
@@ -10,7 +11,7 @@ namespace View{
 
 	Scene::Scene() {
 		doUpdate = true;
-		canvasToShow = Mat(640, 800, CV_8UC3, Scalar(255, 255, 255));
+		canvasToShow = Mat(640, 800, CV_8UC4, cvScalarAll(255));
 		img = IplImage(canvasToShow);
 		//canvas.cols = 800;
 		//canvas.rows = 640;//could use file reading
@@ -28,17 +29,32 @@ namespace View{
 		if (!doUpdate)
 			return;
 		using namespace cv;
-		//************************
-		//canvas.copyTo(canvasToShow);
 		cvSet(&img, Scalar::all(255), nullptr);
-		//canvasToShow= Mat(640, 800, CV_8UC3, Scalar(255, 255, 255));
-		//cvSet((void*)&canvasToShow, Scalar::all(255), nullptr);
-		for (set_O::iterator it = images.begin(); it != images.end(); ++it) {
-			(*it)->update();
+		for (set_O::iterator it = images.begin(); it != images.end(); ++it)
 			(*it)->print(canvasToShow);
-		}
 		imshow(MainGameRunner::getMainGameRunner()->gameName, canvasToShow);
 	}
+
+	void Scene::mouseEvent(int event, int x, int y, int flags, void* param) {
+		if (event == CV_EVENT_MOUSEMOVE) {
+			for (set_O::iterator it = t_images.begin(); it != t_images.end(); ++it) {
+				bool&flag = dynamic_cast<ToggleObject*>(*it)->flag;
+				if ((*it)->mouseIn(Point(x, y)))
+					flag = true;
+				else if (flag == true)
+					flag = false;
+			}
+		}
+		else if (event == CV_EVENT_LBUTTONDOWN || event == CV_EVENT_RBUTTONDOWN) {
+			for (set_O::iterator it = t_images.begin(); it != t_images.end(); ++it) {
+				if ((*it)->mouseIn(Point(x, y))) {
+					dynamic_cast<PictureObject*>(*it)->onClick(event == CV_EVENT_LBUTTONDOWN);
+					return;
+				}
+			}
+		}
+	}
+
 	void Scene::addObject(Object*object) {
 		images.insert(object);
 		int attr = object->getAttribute();

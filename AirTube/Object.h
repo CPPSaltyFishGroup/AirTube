@@ -7,12 +7,12 @@ namespace View {
 	protected:
 		int attribute;//click+toggle
 		int depth;
-		Point position;
 		Object(int depth,const Point&position);
 
 	public:
+		Point position;
+
 		virtual ~Object();
-		virtual void update() = 0;
 		virtual void print(const cv::Mat&canvas) = 0;
 		//only used by scene
 		int getAttribute();

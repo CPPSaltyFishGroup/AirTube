@@ -6,13 +6,11 @@ namespace View {
 	private:
 	protected:
 	public:
-		PictureObject(int depth,const Point&point,const char*pictureName);
 		Mat picture;
-		//void update();
-		void print(const cv::Mat&canvas);
+		PictureObject(int depth,const Point&point,const char*pictureName);
+		virtual void print(const cv::Mat&canvas);
 		//only used by scene
 		bool mouseIn(const Point&point);
-		//void onClick();
-		void setPosition(const Point&point);
+		virtual void onClick(bool isLeft) = 0;//must be defined in son class
 	};
 }
