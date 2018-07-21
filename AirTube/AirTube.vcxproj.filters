@@ -30,6 +30,9 @@
     <Filter Include="源文件\TestFiles\box">
       <UniqueIdentifier>{4c21539c-8a3d-4fa5-9c7b-1f46d9766842}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Object\PictureObject">
+      <UniqueIdentifier>{f0c0cabc-e603-47af-9df3-c879c233a481}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -56,6 +59,9 @@
     <ClCompile Include="Tools.cpp">
       <Filter>源文件\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="PictureObject.cpp">
+      <Filter>源文件\Object\PictureObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGameRunner.h">
@@ -72,6 +78,9 @@
     </ClInclude>
     <ClInclude Include="TestFile.h">
       <Filter>源文件\TestFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="PictureObject.h">
+      <Filter>源文件\Object\PictureObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

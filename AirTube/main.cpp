@@ -5,7 +5,7 @@
 //using namespace cv;
 int main() {
 	using namespace cv;
-	using namespace GameUnit;
+	using namespace View;
 	MainGameRunner*runner = MainGameRunner::getMainGameRunner();
 	runner->gameName = "HangzhouAirTube";
 	runner->setScene<FuckScene>();

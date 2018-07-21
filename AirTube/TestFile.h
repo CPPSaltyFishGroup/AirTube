@@ -2,7 +2,7 @@
 #include"Scene.h"
 #include"box.h"
 #include<vector>
-using namespace GameUnit;
+using namespace View;
 class FuckScene:public Scene{
 private:
 	Box * box;

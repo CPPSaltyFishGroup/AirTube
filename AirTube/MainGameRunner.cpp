@@ -1,7 +1,7 @@
 #include"MainGameRunner.h"
 #include<ctime>
 //#define DEBUG
-namespace GameUnit {
+namespace View {
 
 	MainGameRunner* MainGameRunner::runner = nullptr;
 

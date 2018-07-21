@@ -3,8 +3,8 @@
 #include"MainGameRunner.h"
 #include <opencv2/core/core.hpp>  
 #include <opencv2/highgui/highgui.hpp>
-typedef std::set<GameUnit::Object*, GameUnit::Object::Compare> set_O;
-namespace GameUnit {
+namespace View{
+	typedef std::set<Object*, Object::Compare> set_O;
 	using Tools::clamp;
 	using cv::Scalar;
 

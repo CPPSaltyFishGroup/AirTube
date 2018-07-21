@@ -1,6 +1,6 @@
 #pragma once
 #include"Scene.h"
-namespace GameUnit {
+namespace View {
 	class MainGameRunner {
 	private:
 		static MainGameRunner*runner;

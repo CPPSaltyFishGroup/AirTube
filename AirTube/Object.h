@@ -1,7 +1,7 @@
 #pragma once
 #include <opencv2/core/core.hpp>  
 #include <opencv2/highgui/highgui.hpp>
-namespace GameUnit {
+namespace View {
 	using cv::Point;
 	class Object {
 	protected:
