@@ -32,8 +32,11 @@ namespace View {
 	void PlaneObject::onClick(bool isLeft) {
 		//to be continued
 	}
+	void PlaneObject::setMidPosition(const Point&point) {
+		position.x = point.x - picture.cols / 2;
+		position.y = point.y - picture.rows / 2;
+	}
 	void PlaneObject::setPosition(const Point&point) {
-		position.x = point.x - picture.cols/2;
-		position.y = point.y - picture.rows/2;
+		position = point;
 	}
 }

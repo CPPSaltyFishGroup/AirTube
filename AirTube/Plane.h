@@ -2,9 +2,10 @@
 #include"Tools.h"
 #include"Line.h"
 #include"Circle.h"
+//#include<opencv2/core/types.hpp>
 #include<list>
 namespace Model {
-	using cv::Point;
+	using cv::Point2d;
 	using std::list;
 	struct Plane {
 		static double rotateVelocity;
@@ -14,7 +15,7 @@ namespace Model {
 
 		void*UIPicture;
 		double rotate;
-		Point position;
+		Point2d position;
 		int radius;
 		list<Line*>lines;
 		Circle circle;

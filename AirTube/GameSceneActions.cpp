@@ -30,13 +30,17 @@ namespace ViewModel {
 
 		//update the planes
 		for (list_P::iterator it = Plane::planes.begin(); it != Plane::planes.end(); ++it) {
-			int deltaX = Plane::moveVelocity * sin((*it)->rotate*CV_PI / 360.0);
-			int deltaY = -Plane::moveVelocity * cos((*it)->rotate*CV_PI / 360.0);
-			(*it)->position.x += deltaX;
-			(*it)->position.y += deltaY;
-			void *t = (*it)->UIPicture;
-			static_cast<PlaneObject*>(t)->setPosition((*it)->position);
-			static_cast<CircleObject*>(t)->setPosition((*it)->position);
+			if ((*it)->lines.empty()) {
+				double deltaX = -Plane::moveVelocity * sin((*it)->rotate * 2 * CV_PI / 360.0);
+				double deltaY = -Plane::moveVelocity * cos((*it)->rotate * 2 * CV_PI / 360.0);
+				(*it)->position.x += deltaX;
+				(*it)->position.y += deltaY;
+				static_cast<PlaneObject*>((*it)->UIPicture)->setMidPosition((*it)->position);
+				static_cast<CircleObject*>((*it)->circle.UICircle)->setPosition((*it)->position);
+			}
+			else {
+
+			}
 		}
 
 		//check if crush
