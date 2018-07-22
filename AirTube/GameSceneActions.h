@@ -18,6 +18,7 @@ namespace ViewModel {
 		static Point newlyPosition;
 		static double newRotate;
 		static void generatePositionAndVelocity();
+		static void createNewPlane(View::GameScene*);
 	public:
 		static void planeClick(const PlaneObject*);
 		static void backgroundClick(const Point&point);

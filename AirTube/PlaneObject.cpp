@@ -1,5 +1,6 @@
 #include"PlaneObject.h"
 #include"Tools.h"
+#include"GameSceneActions.h"
 #include <opencv2/core/core.hpp>  
 #include <opencv2/highgui/highgui.hpp>
 #include<opencv2/imgproc.hpp>
@@ -30,7 +31,7 @@ namespace View {
 	}
 	//only used by scene
 	void PlaneObject::onClick(bool isLeft) {
-		//to be continued
+		ViewModel::GameSceneActions::planeClick(this);
 	}
 	void PlaneObject::setMidPosition(const Point&point) {
 		position.x = point.x - picture.cols / 2;

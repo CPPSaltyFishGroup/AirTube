@@ -1,6 +1,6 @@
 #pragma once
 namespace Model {
-	class Plane;
+	struct Plane;
 	struct ChosenPlane {
 		static Plane*chosenPlane;
 

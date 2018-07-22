@@ -6,6 +6,7 @@
 #include"ScoreManager.h"
 #include"BackgroundObject.h"
 #include"CircleObject.h"
+#include"ChosenPlane.h"
 namespace ViewModel {
 
 	time_t GameSceneActions::lastTime=0;
@@ -16,8 +17,20 @@ namespace ViewModel {
 	double GameSceneActions::newRotate=0.0;
 
 	MainGameRunner*GameSceneActions::runner = MainGameRunner::getMainGameRunner();
-	void GameSceneActions::planeClick(const PlaneObject*) {
-
+	void GameSceneActions::planeClick(const PlaneObject*planeObject) {
+		using namespace View;
+		using namespace Model;
+		if (ChosenPlane::chosenPlane != nullptr) {
+			if (ChosenPlane::chosenPlane != planeObject->logicPlane) {
+				(static_cast<CircleObject*>(ChosenPlane::chosenPlane->circle.UICircle))->radius = 0;
+			}
+			else {
+				return;
+			}
+		}
+		static_cast<CircleObject*>(static_cast<Plane*>(planeObject->logicPlane)->circle.UICircle)->radius = Plane::ordinaryRadius;
+		ChosenPlane::chosenPlane = static_cast<Plane*>(planeObject->logicPlane);
+		return;
 	}
 	void GameSceneActions::backgroundClick(const Point&point) {
 
@@ -47,27 +60,33 @@ namespace ViewModel {
 
 		//set new plane
 		time_t currentTime = clock();
-		if (currentTime >= lastTime + PlaneCreator::minDeltaTime) {
-			generatePositionAndVelocity();
-			Plane*t = new Plane{};
-			PlaneObject*UIPlane = new PlaneObject(planeDepth++, newlyPosition);
-			t->UIPicture = UIPlane;
-			UIPlane->logicPlane = t;
-			//logicPlane->UIPicture = UIPlane;
-			scene->addObject(UIPlane);
-			UIPlane->setRotation(newRotate);
-			t->position = newlyPosition;
-			t->rotate = newRotate;
-			t->radius = 50;//can be set in namespace Model
-			CircleObject*UICircle= new CircleObject(circleDepth++, newlyPosition);
-			scene->addObject(UICircle);
-			UICircle->radius = 100;
-
-			Plane::planes.push_back(t);
-			t->circle.UICircle = UICircle;
-			lastTime = clock();
-		}
+		if (currentTime >= lastTime + PlaneCreator::minDeltaTime)
+			createNewPlane(scene);
 	}
+
+	void GameSceneActions::createNewPlane(View::GameScene*scene) {
+		using Model::Plane;
+		using View::CircleObject;
+		generatePositionAndVelocity();
+		Plane*t = new Plane{};
+		PlaneObject*UIPlane = new PlaneObject(planeDepth++, newlyPosition);
+		t->UIPicture = UIPlane;
+		UIPlane->logicPlane = t;
+		//logicPlane->UIPicture = UIPlane;
+		scene->addObject(UIPlane);
+		UIPlane->setRotation(newRotate);
+		t->position = newlyPosition;
+		t->rotate = newRotate;
+		t->radius = Plane::ordinaryRadius;//can be set in namespace Model
+		CircleObject*UICircle = new CircleObject(circleDepth++, newlyPosition);
+		scene->addObject(UICircle);
+		UICircle->radius = 0;
+
+		Plane::planes.push_back(t);
+		t->circle.UICircle = UICircle;
+		lastTime = clock();
+	}
+
 	void GameSceneActions::startGameScene(View::GameScene*scene) {
 		using namespace Model;
 		using namespace View;

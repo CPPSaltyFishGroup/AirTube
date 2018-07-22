@@ -11,6 +11,7 @@ namespace Model {
 		static double rotateVelocity;
 		static double moveVelocity;
 		static list<Plane*>planes;
+		static int ordinaryRadius;
 
 
 		void*UIPicture;
