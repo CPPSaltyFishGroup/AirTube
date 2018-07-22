@@ -7,12 +7,13 @@
 #include"BackgroundObject.h"
 #include"CircleObject.h"
 #include"ChosenPlane.h"
+#include"LineObject.h"
 namespace ViewModel {
 
 	time_t GameSceneActions::lastTime=0;
-	int GameSceneActions::planeDepth = -20000;
+	int GameSceneActions::planeDepth = -30000;
 	int GameSceneActions::circleDepth = -10000;
-	int GameSceneActions::lineDepth = -30000;
+	int GameSceneActions::lineDepth = -20000;
 	Point GameSceneActions::newlyPosition=Point(0,0);
 	double GameSceneActions::newRotate=0.0;
 
@@ -21,19 +22,52 @@ namespace ViewModel {
 		using namespace View;
 		using namespace Model;
 		if (ChosenPlane::chosenPlane != nullptr) {
-			if (ChosenPlane::chosenPlane != planeObject->logicPlane) {
-				(static_cast<CircleObject*>(ChosenPlane::chosenPlane->circle.UICircle))->radius = 0;
-			}
+			if (ChosenPlane::chosenPlane != planeObject->logicPlane)
+				noChoose();
 			else {
 				return;
 			}
 		}
-		static_cast<CircleObject*>(static_cast<Plane*>(planeObject->logicPlane)->circle.UICircle)->radius = Plane::ordinaryRadius;
 		ChosenPlane::chosenPlane = static_cast<Plane*>(planeObject->logicPlane);
+		static_cast<CircleObject*>(ChosenPlane::chosenPlane->circle.UICircle)->radius = Plane::ordinaryRadius;
 		return;
 	}
-	void GameSceneActions::backgroundClick(const Point&point) {
-
+	void GameSceneActions::backgroundClick(const Point&point,bool isLeft) {
+		using Model::ChosenPlane;
+		using Model::Plane;
+		Plane*plane = ChosenPlane::chosenPlane;
+		if (plane != nullptr) {
+			if (isLeft) {
+				using namespace Model;
+				using namespace View;
+				Line*line = new Line();
+				line->to = point;
+				for (list<Airport>::iterator it = Airport::airports.begin(); it != Airport::airports.end(); ++it) {
+					if (it->checkIn(point)) {
+						line->isAttachingAirport = true;
+						break;
+					}
+				}
+				if (plane->lines.empty()) {
+					line->from = plane->position;
+					//set logic plane's rotation
+					plane->rotation = line->to - line->from;
+				}
+				else
+					line->from = plane->lines.back()->to;
+				LineObject*UILine = new LineObject(
+					lineDepth++,
+					line->from,
+					line->to,
+					line->isAttachingAirport ? Line::attachingColor : Line::normalColor
+				);
+				line->UILine = UILine;
+				plane->lines.push_back(line);
+				runner->getScene()->addObject(UILine);
+			}
+			else
+				noChoose();
+		}
 	}
 	void GameSceneActions::sceneUpdate(View::GameScene*scene) {
 		using namespace cv;
@@ -41,27 +75,61 @@ namespace ViewModel {
 		using namespace Model;
 		typedef std::list<Plane*> list_P;
 
+
+		//*********************************warning!!!!!!!after pause,clear the lines and planes!!!!
+
+
 		//update the planes
 		for (list_P::iterator it = Plane::planes.begin(); it != Plane::planes.end(); ++it) {
-			if ((*it)->lines.empty()) {
-				double deltaX = -Plane::moveVelocity * sin((*it)->rotate * 2 * CV_PI / 360.0);
-				double deltaY = -Plane::moveVelocity * cos((*it)->rotate * 2 * CV_PI / 360.0);
-				(*it)->position.x += deltaX;
-				(*it)->position.y += deltaY;
-				static_cast<PlaneObject*>((*it)->UIPicture)->setMidPosition((*it)->position);
-				static_cast<CircleObject*>((*it)->circle.UICircle)->setPosition((*it)->position);
+			using Tools::square;
+			if (!(*it)->lines.empty()) {
+				using Tools::square;
+				//first,change position
+				Line*line = (*it)->lines.front();
+				if (square(Plane::moveVelocity) > square((*it)->position.x - line->to.x) + square((*it)->position.y - line->to.y)) {
+					scene->removeObject(static_cast<Object*>(line->UILine));
+					delete line->UILine;
+					delete line;
+					(*it)->lines.pop_front();
+					if ((*it)->lines.empty())
+						goto out;
+					else
+						line = (*it)->lines.front();
+				}
+				//change line position
+				static_cast<LineObject*>(line->UILine)->position = line->from = (*it)->position;
+				(*it)->rotation = line->to - line->from;
 			}
-			else {
+		out:
+			double scale = Plane::moveVelocity / sqrt(square((*it)->rotation.x) + square((*it)->rotation.y));
+			double deltaX = (*it)->rotation.x*scale;
+			double deltaY = (*it)->rotation.y*scale;
+			(*it)->position.x += deltaX;
+			(*it)->position.y += deltaY;
+			static_cast<PlaneObject*>((*it)->UIPicture)->setMidPosition((*it)->position);
+			static_cast<CircleObject*>((*it)->circle.UICircle)->setPosition((*it)->position);
 
-			}
 		}
 
 		//check if crush
+		/*
+		for (list_P::iterator it = Plane::planes.begin(); it != Plane::planes.end(); ++it) {
+			for (list_P::iterator it2 = Plane::planes.begin(); it2 != Plane::planes.end(); ++it2) {
+				if(square(Plane::ordinaryRadius)<=square((*it)->))
+			}
+		}*/
 
 		//set new plane
 		time_t currentTime = clock();
 		if (currentTime >= lastTime + PlaneCreator::minDeltaTime)
 			createNewPlane(scene);
+	}
+
+	void GameSceneActions::noChoose() {
+		using Model::ChosenPlane;
+		using View::CircleObject;
+		(static_cast<CircleObject*>(ChosenPlane::chosenPlane->circle.UICircle))->radius = 0;
+		ChosenPlane::chosenPlane = nullptr;
 	}
 
 	void GameSceneActions::createNewPlane(View::GameScene*scene) {
@@ -76,7 +144,8 @@ namespace ViewModel {
 		scene->addObject(UIPlane);
 		UIPlane->setRotation(newRotate);
 		t->position = newlyPosition;
-		t->rotate = newRotate;
+		t->rotation.x = -sin(newRotate * 2 * CV_PI / 360.0);
+		t->rotation.y = -cos(newRotate * 2 * CV_PI / 360.0);
 		t->radius = Plane::ordinaryRadius;//can be set in namespace Model
 		CircleObject*UICircle = new CircleObject(circleDepth++, newlyPosition);
 		scene->addObject(UICircle);

@@ -6,17 +6,20 @@
 namespace View {
 	using cv::Mat;
 	typedef std::set<Object*, Object::Compare> set_O;
+	typedef std::set<Object*, Object::InverseCompare> set_in_O;
 	class Scene {
 	protected:
 		set_O images;
 		//able to be clicked
-		set_O c_images;
+		set_in_O c_images;
 		//toggles
-		set_O t_images;
+		set_in_O t_images;
 		Mat canvasToShow;
 		IplImage img;
 		bool doUpdate;
 	public:
+		Point currentMousePoint;
+
 		Scene();
 		virtual ~Scene();
 		virtual void update();

@@ -3,9 +3,12 @@
 #include"MainGameRunner.h"
 #include"PlaneObject.h"
 #include"GameSceneActions.h"
-#include"ctime"
+#include<ctime>
+#include"MainBackgroundObject.h"
 namespace View {
 	GameScene::GameScene() {
+		MainBackgroundObject*background = new MainBackgroundObject(0x7fffffff, Point(0, 0), "HiresScreenshot.png");
+		addObject(background);
 		TextObject*score = new TextObject(-10086, Point(0, 620), CV_FONT_HERSHEY_SIMPLEX, 1);
 		this->score = score;
 		addObject(score);

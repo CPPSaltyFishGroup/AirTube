@@ -23,5 +23,10 @@ namespace View {
 			typedef Object* Object_ptr;
 			bool operator()(const Object_ptr&, const Object_ptr&)const;
 		};
+		class InverseCompare {
+		public:
+			typedef Object* Object_ptr;
+			bool operator()(const Object_ptr&, const Object_ptr&)const;
+		};
 	};
 }

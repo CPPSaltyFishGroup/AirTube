@@ -15,7 +15,7 @@ namespace Model {
 
 
 		void*UIPicture;
-		double rotate;
+		Point2d rotation;
 		Point2d position;
 		int radius;
 		list<Line*>lines;

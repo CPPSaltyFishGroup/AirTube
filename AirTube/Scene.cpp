@@ -37,7 +37,7 @@ namespace View{
 
 	void Scene::mouseEvent(int event, int x, int y, int flags, void* param) {
 		if (event == CV_EVENT_MOUSEMOVE) {
-			for (set_O::iterator it = t_images.begin(); it != t_images.end(); ++it) {
+			for (set_in_O::iterator it = t_images.begin(); it != t_images.end(); ++it) {
 				bool&flag = dynamic_cast<ToggleObject*>(*it)->flag;
 				if ((*it)->mouseIn(Point(x, y)))
 					flag = true;
@@ -46,7 +46,9 @@ namespace View{
 			}
 		}
 		else if (event == CV_EVENT_LBUTTONDOWN || event == CV_EVENT_RBUTTONDOWN) {
-			for (set_O::iterator it = c_images.begin(); it != c_images.end(); ++it) {
+			currentMousePoint.x = x;
+			currentMousePoint.y = y;
+			for (set_in_O::iterator it = c_images.begin(); it != c_images.end(); ++it) {
 				if ((*it)->mouseIn(Point(x, y))) {
 					dynamic_cast<PictureObject*>(*it)->onClick(event == CV_EVENT_LBUTTONDOWN);
 					return;

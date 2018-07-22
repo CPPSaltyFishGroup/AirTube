@@ -19,9 +19,10 @@ namespace ViewModel {
 		static double newRotate;
 		static void generatePositionAndVelocity();
 		static void createNewPlane(View::GameScene*);
+		static void noChoose();
 	public:
 		static void planeClick(const PlaneObject*);
-		static void backgroundClick(const Point&point);
+		static void backgroundClick(const Point&point,bool isLeft);
 		static void sceneUpdate(View::GameScene*scene);
 		static void startGameScene(View::GameScene*scene);
 	};
