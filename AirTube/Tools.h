@@ -5,17 +5,17 @@
 #define SHOW_PICTURE(picture) \
 {\
 	using cv::Rect;\
-	int x2=MIN(picture.cols, canvas.cols - position.x);\
-	int y2=MIN(picture.rows, canvas.rows - position.y);\
+	int x2=MIN(picture.cols + MIN(position.x, 0),canvas.cols - position.x);\
+	int y2=MIN(picture.rows + MIN(position.y, 0),canvas.rows - position.y);\
 	Mat bg = canvas(Rect(\
-		MAX(position.x, 0),\
-		MAX(position.y, 0),\
+		MAX(MIN(position.x,canvas.cols), 0),\
+		MAX(MIN(position.y,canvas.rows), 0),\
 		x2,\
 		y2\
 	));\
 	Mat sprt = picture(Rect(\
-		MAX(-position.x, 0),\
-		MAX(-position.y, 0),\
+		MIN(picture.cols, MAX( -position.x, 0)), \
+		MIN(picture.rows, MAX( -position.y, 0)),\
 		x2,\
 		y2\
 	));\

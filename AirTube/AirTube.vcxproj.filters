@@ -15,12 +15,6 @@
     <Filter Include="资源文件\TestPic">
       <UniqueIdentifier>{c176f4ff-3d05-44c0-8f46-a50f59b29ac3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\TestFiles">
-      <UniqueIdentifier>{c8d15848-9f61-4471-af45-5a10db5732a3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\TestFiles\box">
-      <UniqueIdentifier>{4c21539c-8a3d-4fa5-9c7b-1f46d9766842}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\View">
       <UniqueIdentifier>{b383cf62-e4da-4af3-8704-04614a7760c8}</UniqueIdentifier>
     </Filter>
@@ -83,6 +77,48 @@
     </Filter>
     <Filter Include="源文件\View\Scene\EndScene">
       <UniqueIdentifier>{c29132d0-b8f8-4904-9ffb-ff85a95c539b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ViewModel">
+      <UniqueIdentifier>{17f96647-9d52-4529-a864-0a45a033d9e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Model">
+      <UniqueIdentifier>{f5edf86a-8a54-40c3-8a4d-c1e0a5ce2895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ViewModel\StartScene">
+      <UniqueIdentifier>{298f87d0-e54f-4c40-8a68-aff909b2e866}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ViewModel\GameScene">
+      <UniqueIdentifier>{b4100354-1ab9-4e15-b51a-a8e63d67be5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ViewModel\EndScene">
+      <UniqueIdentifier>{239665c4-e31b-4a37-83ca-e2818242d767}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\TestFiles">
+      <UniqueIdentifier>{c8d15848-9f61-4471-af45-5a10db5732a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\TestFiles\box">
+      <UniqueIdentifier>{4c21539c-8a3d-4fa5-9c7b-1f46d9766842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Model\Line">
+      <UniqueIdentifier>{e2e37486-4e01-4496-87a7-b99e07e47418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Model\Circle">
+      <UniqueIdentifier>{6480f238-d74b-4c37-8206-8b9c8302dc87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Model\Plane">
+      <UniqueIdentifier>{07c1d69f-909d-4089-b608-ad0273ecfd2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Model\PlaneCreator">
+      <UniqueIdentifier>{009b8e40-a636-4af7-8dfa-3b898fb12b81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Model\ScoreManager">
+      <UniqueIdentifier>{04109800-fbb1-40be-8e43-1851e5ce6fd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Model\Airport">
+      <UniqueIdentifier>{9f04421f-30d8-40eb-bee4-6dd243663926}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Model\ChosenPlane">
+      <UniqueIdentifier>{18b14127-c069-4df1-ad50-278239a834f0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +185,36 @@
     <ClCompile Include="GameScene.cpp">
       <Filter>源文件\View\Scene\GameScene</Filter>
     </ClCompile>
+    <ClCompile Include="TextObject.cpp">
+      <Filter>源文件\View\Object\TextObject</Filter>
+    </ClCompile>
+    <ClCompile Include="StartSceneActions.cpp">
+      <Filter>源文件\ViewModel\StartScene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSceneActions.cpp">
+      <Filter>源文件\ViewModel\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>源文件\Model\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>源文件\Model\Circle</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>源文件\Model\Plane</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreManager.cpp">
+      <Filter>源文件\Model\ScoreManager</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaneCreator.cpp">
+      <Filter>源文件\Model\PlaneCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="ChosenPlane.cpp">
+      <Filter>源文件\Model\ChosenPlane</Filter>
+    </ClCompile>
+    <ClCompile Include="Airport.cpp">
+      <Filter>源文件\Model\Airport</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGameRunner.h">
@@ -204,6 +270,36 @@
     </ClInclude>
     <ClInclude Include="GameScene.h">
       <Filter>源文件\View\Scene\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="TextObject.h">
+      <Filter>源文件\View\Object\TextObject</Filter>
+    </ClInclude>
+    <ClInclude Include="StartSceneActions.h">
+      <Filter>源文件\ViewModel\StartScene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSceneActions.h">
+      <Filter>源文件\ViewModel\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>源文件\Model\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>源文件\Model\Circle</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>源文件\Model\Plane</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreManager.h">
+      <Filter>源文件\Model\ScoreManager</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaneCreator.h">
+      <Filter>源文件\Model\PlaneCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="ChosenPlane.h">
+      <Filter>源文件\Model\ChosenPlane</Filter>
+    </ClInclude>
+    <ClInclude Include="Airport.h">
+      <Filter>源文件\Model\Airport</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

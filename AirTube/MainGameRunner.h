@@ -14,7 +14,7 @@ namespace View {
 		const char*gameName;
 		//~MainGameRunner();
 		static MainGameRunner* getMainGameRunner();
-
+		Scene*getScene();
 
 		void run();
 

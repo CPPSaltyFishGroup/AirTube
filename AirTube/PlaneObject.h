@@ -6,6 +6,7 @@ namespace View {
 		double rotate;
 		Mat rotatedPic;
 	public:
+		void*logicPlane;
 		PlaneObject(int depth, const Point&point);
 		void print(const Mat&canvas);
 		void setRotation(double rotate);

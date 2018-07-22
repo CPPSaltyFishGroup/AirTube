@@ -115,16 +115,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Airport.cpp" />
     <ClCompile Include="BackgroundObject.cpp" />
     <ClCompile Include="box.cpp" />
     <ClCompile Include="box.h" />
+    <ClCompile Include="ChosenPlane.cpp" />
+    <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleObject.cpp" />
     <ClCompile Include="EndButtonObject.cpp" />
     <ClCompile Include="EndScene.cpp" />
     <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="GameSceneActions.cpp" />
+    <ClCompile Include="Line.cpp" />
     <ClCompile Include="LineObject.cpp" />
     <ClCompile Include="MainBackgroundObject.cpp" />
     <ClCompile Include="PauseButtonObject.cpp" />
+    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="PlaneCreator.cpp" />
     <ClCompile Include="PlaneObject.cpp" />
     <ClCompile Include="FuckScene.cpp" />
     <ClCompile Include="main.cpp" />
@@ -132,28 +139,41 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="PictureObject.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="StartButtonObject.cpp" />
     <ClCompile Include="StartScene.cpp" />
+    <ClCompile Include="StartSceneActions.cpp" />
+    <ClCompile Include="TextObject.cpp" />
     <ClCompile Include="ToggleObject.cpp" />
     <ClCompile Include="Tools.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Airport.h" />
     <ClInclude Include="BackgroundObject.h" />
+    <ClInclude Include="ChosenPlane.h" />
+    <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleObject.h" />
     <ClInclude Include="EndButtonObject.h" />
     <ClInclude Include="EndScene.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="GameSceneActions.h" />
+    <ClInclude Include="Line.h" />
     <ClInclude Include="LineObject.h" />
     <ClInclude Include="MainBackgroundObject.h" />
     <ClInclude Include="PauseButtonObject.h" />
+    <ClInclude Include="Plane.h" />
+    <ClInclude Include="PlaneCreator.h" />
     <ClInclude Include="PlaneObject.h" />
     <ClInclude Include="MainGameRunner.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="PictureObject.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="ScoreManager.h" />
     <ClInclude Include="StartButtonObject.h" />
     <ClInclude Include="StartScene.h" />
+    <ClInclude Include="StartSceneActions.h" />
     <ClInclude Include="TestFile.h" />
+    <ClInclude Include="TextObject.h" />
     <ClInclude Include="ToggleObject.h" />
     <ClInclude Include="Tools.h" />
   </ItemGroup>

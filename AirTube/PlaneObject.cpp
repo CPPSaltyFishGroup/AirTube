@@ -6,7 +6,11 @@
 namespace View {
 	PlaneObject::PlaneObject(int depth, const Point&point) :
 		PictureObject(depth, point, "GreyPlane.png") {
+		position.x -= picture.cols / 2;
+		position.y -= picture.rows / 2;
+		rotatedPic = Mat(picture.rows, picture.cols, CV_8UC4, cv::Scalar(255, 255, 255, 255));
 		attribute = 2;//1+0
+		setRotation(0.0);
 	}
 	void PlaneObject::setRotation(double rotate) {
 		static Mat m;
@@ -19,6 +23,9 @@ namespace View {
 	}
 	void PlaneObject::print(const cv::Mat&canvas) {
 		using namespace cv;
+		if (position.x >= canvas.cols || position.y >= canvas.rows ||
+			position.x + picture.cols <= 0 || position.y + picture.rows <= 0)
+			return;
 		SHOW_PICTURE(rotatedPic);
 	}
 	//only used by scene
@@ -26,6 +33,7 @@ namespace View {
 		//to be continued
 	}
 	void PlaneObject::setPosition(const Point&point) {
-		position = point;
+		position.x = point.x - picture.cols/2;
+		position.y = point.y - picture.rows/2;
 	}
 }

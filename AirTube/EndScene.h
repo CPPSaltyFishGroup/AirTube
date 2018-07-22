@@ -3,10 +3,8 @@
 namespace View {
 	class EndScene :public Scene {
 	private:
-
 	protected:
-
 	public:
-
+		EndScene();
 	};
 }

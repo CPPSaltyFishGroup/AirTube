@@ -10,7 +10,7 @@ namespace View {
 		int thickness,
 		int lineType) :
 		Object(depth, position),
-		targetPoint(targetPoint),
+		targetPoint(target),
 		color(color),
 		thickness(thickness),
 		lineType(lineType) {

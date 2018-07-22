@@ -5,7 +5,6 @@
 #include <opencv2/core/core.hpp>  
 #include <opencv2/highgui/highgui.hpp>
 namespace View{
-	typedef std::set<Object*, Object::Compare> set_O;
 	using Tools::clamp;
 	using cv::Scalar;
 
@@ -47,7 +46,7 @@ namespace View{
 			}
 		}
 		else if (event == CV_EVENT_LBUTTONDOWN || event == CV_EVENT_RBUTTONDOWN) {
-			for (set_O::iterator it = t_images.begin(); it != t_images.end(); ++it) {
+			for (set_O::iterator it = c_images.begin(); it != c_images.end(); ++it) {
 				if ((*it)->mouseIn(Point(x, y))) {
 					dynamic_cast<PictureObject*>(*it)->onClick(event == CV_EVENT_LBUTTONDOWN);
 					return;

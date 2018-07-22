@@ -5,13 +5,14 @@
 #include<set>
 namespace View {
 	using cv::Mat;
+	typedef std::set<Object*, Object::Compare> set_O;
 	class Scene {
-	private:
-		std::set<Object*,Object::Compare>images;
+	protected:
+		set_O images;
 		//able to be clicked
-		std::set<Object*, Object::Compare>c_images;
+		set_O c_images;
 		//toggles
-		std::set<Object*, Object::Compare>t_images;
+		set_O t_images;
 		Mat canvasToShow;
 		IplImage img;
 		bool doUpdate;

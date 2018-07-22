@@ -21,5 +21,6 @@ namespace View {
 			int lineType=8);
 		void print(const Mat&canvas);
 		bool mouseIn(const Point&point);
+		void setPosition(const Point&point);
 	};
 }

@@ -47,4 +47,8 @@ namespace View {
 		}
 	}
 
+	Scene*MainGameRunner::getScene() {
+		return currentScene;
+	}
+
 }
