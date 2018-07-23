@@ -10,7 +10,7 @@ namespace ViewModel {
 	private:
 		static MainGameRunner*runner;
 
-		static time_t lastTime;
+		static time_t lastTime,timeChange;
 		static bool goUpdate;
 
 		static int planeDepth;

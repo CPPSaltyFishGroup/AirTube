@@ -17,6 +17,7 @@ namespace View {
 		void setPosition(const Point&point);
 		void setMidPosition(const Point&point);
 		void onClick(bool isLeft);
+		bool mouseIn(const Point&point);
 		//const Mat&getPicToShow();
 	};
 }

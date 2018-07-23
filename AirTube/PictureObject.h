@@ -10,7 +10,7 @@ namespace View {
 		PictureObject(int depth,const Point&point,const char*pictureName);
 		virtual void print(const cv::Mat&canvas);
 		//only used by scene
-		bool mouseIn(const Point&point);
+		virtual bool mouseIn(const Point&point);
 		virtual void onClick(bool isLeft) = 0;//must be defined in son class
 	};
 }
