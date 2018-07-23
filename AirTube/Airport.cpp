@@ -7,9 +7,9 @@ namespace Model {
 		entranceOffset(entrance),
 		entranceRadius(radius){}
 	list<Airport>Airport::airports={
-		{ Point(200,200),Point(190,108),10 },
-		{ Point(400,400),Point(190,108),10 },
-		{ Point(600,200),Point(190,108),10 } 
+		{ Point(100,100),Point(185,108),15 },
+		{ Point(400,400),Point(185,108),15 },
+		{ Point(500,200),Point(185,108),15 } 
 	};
 	bool Airport::checkIn(const Point&point) {
 		using Tools::square;
