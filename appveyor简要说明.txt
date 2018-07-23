@@ -1,0 +1,5 @@
+先登录github并保持页面打开
+进入appveyor官网，选择用github与其关联
+将select repository，左方点击那个啥键，弹出页面向github授权，同意之后，选择你可以编辑的一个仓库
+接下来前往settings，environment中选择合适的编译器，比如我使用visual studio 2017。鉴于小学期作品不必发布，将deployment中设为off
+再看build,Configuration填Release，Platform填x86
