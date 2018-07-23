@@ -47,4 +47,10 @@ namespace View {
 	double PlaneObject::getRotation() {
 		return rotate;
 	}
+	bool PlaneObject::mouseIn(const Point&point) {
+		if (alpha != 1.0)
+			return false;
+		return position.x <= point.x&&point.x <= position.x + picture.cols&&
+			position.y <= point.y&&point.y <= position.y + picture.rows;
+	}
 }

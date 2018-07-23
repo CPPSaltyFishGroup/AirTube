@@ -1,6 +1,6 @@
 #include"ScoreManager.h"
 namespace Model {
-	int ScoreManager::planeReward = 3;
+	int ScoreManager::planeReward = 1;
 	int ScoreManager::score = 0;
 	int ScoreManager::addPlaneReward() {
 		score += planeReward;

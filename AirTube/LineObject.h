@@ -16,8 +16,8 @@ namespace View {
 			const Point&position,
 			const Point&target,
 			const Scalar&color=cvScalarAll(0),
-			int thickness=2,
-			int lineType=8);
+			int thickness=1,
+			int lineType=CV_AA);
 		void print(const cv::Mat&canvas);
 		bool mouseIn(const Point&point);
 	};

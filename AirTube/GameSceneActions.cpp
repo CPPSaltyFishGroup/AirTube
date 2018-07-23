@@ -12,6 +12,7 @@
 namespace ViewModel {
 
 	time_t GameSceneActions::lastTime=0;
+	time_t GameSceneActions::timeChange = 0;
 	bool  GameSceneActions::goUpdate = false;
 	int GameSceneActions::planeDepth = -30000;
 	int GameSceneActions::circleDepth = -10000;
@@ -202,7 +203,7 @@ namespace ViewModel {
 
 		//set new plane
 		time_t currentTime = clock();
-		if (currentTime >= lastTime + PlaneCreator::minDeltaTime)
+		if (currentTime >= lastTime + PlaneCreator::minDeltaTime - ((clock()-timeChange )/ 30) % 5000)
 			createNewPlane(scene);
 	}
 
@@ -254,6 +255,7 @@ namespace ViewModel {
 		}
 
 		lastTime = clock();
+		timeChange = clock();
 	}
 
 	void GameSceneActions::generatePositionAndVelocity() {
