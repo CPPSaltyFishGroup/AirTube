@@ -3,7 +3,7 @@ namespace Model {
 	class ScoreManager {
 	public:
 		//static void addScore(int);
-		static void addPlaneReward();
+		static int addPlaneReward();
 		static void setPlaneReward(int);
 		static void clearScore();
 		static int getScore();

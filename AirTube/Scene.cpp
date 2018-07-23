@@ -80,4 +80,8 @@ namespace View{
 	void Scene::goOn() {
 		doUpdate = true;
 	}
+
+	bool Scene::isPaused() {
+		return !doUpdate;
+	}
 }

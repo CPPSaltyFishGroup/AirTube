@@ -11,6 +11,8 @@ namespace ViewModel {
 		static MainGameRunner*runner;
 
 		static time_t lastTime;
+		static bool goUpdate;
+
 		static int planeDepth;
 		static int circleDepth;
 		static int lineDepth;
@@ -20,6 +22,7 @@ namespace ViewModel {
 		static void generatePositionAndVelocity();
 		static void createNewPlane(View::GameScene*);
 		static void noChoose();
+		static void removePlane(void*plane, View::GameScene*scene);
 	public:
 		static void planeClick(const PlaneObject*);
 		static void backgroundClick(const Point&point,bool isLeft);

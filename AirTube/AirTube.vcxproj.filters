@@ -215,6 +215,9 @@
     <ClCompile Include="Airport.cpp">
       <Filter>源文件\Model\Airport</Filter>
     </ClCompile>
+    <ClCompile Include="EndSceneActions.cpp">
+      <Filter>源文件\ViewModel\EndScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGameRunner.h">
@@ -300,6 +303,9 @@
     </ClInclude>
     <ClInclude Include="Airport.h">
       <Filter>源文件\Model\Airport</Filter>
+    </ClInclude>
+    <ClInclude Include="EndSceneActions.h">
+      <Filter>源文件\ViewModel\EndScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

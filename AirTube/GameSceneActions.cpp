@@ -8,9 +8,11 @@
 #include"CircleObject.h"
 #include"ChosenPlane.h"
 #include"LineObject.h"
+#include"EndScene.h"
 namespace ViewModel {
 
 	time_t GameSceneActions::lastTime=0;
+	bool  GameSceneActions::goUpdate = false;
 	int GameSceneActions::planeDepth = -30000;
 	int GameSceneActions::circleDepth = -10000;
 	int GameSceneActions::lineDepth = -20000;
@@ -28,6 +30,7 @@ namespace ViewModel {
 				return;
 			}
 		}
+		ChosenPlane::isFirstTime = true;
 		ChosenPlane::chosenPlane = static_cast<Plane*>(planeObject->logicPlane);
 		static_cast<CircleObject*>(ChosenPlane::chosenPlane->circle.UICircle)->radius = Plane::ordinaryRadius;
 		return;
@@ -40,6 +43,15 @@ namespace ViewModel {
 			if (isLeft) {
 				using namespace Model;
 				using namespace View;
+				if (ChosenPlane::isFirstTime) {
+					ChosenPlane::isFirstTime = false;
+					for (list<Line*>::iterator it = plane->lines.begin(); it != plane->lines.end(); ++it) {
+						runner->getScene()->removeObject(static_cast<Object*>((*it)->UILine));
+						delete (*it)->UILine;
+						delete *it;
+					}
+					plane->lines.clear();
+				}
 				Line*line = new Line();
 				line->to = point;
 				for (list<Airport>::iterator it = Airport::airports.begin(); it != Airport::airports.end(); ++it) {
@@ -75,18 +87,32 @@ namespace ViewModel {
 		using namespace Model;
 		typedef std::list<Plane*> list_P;
 
-
-		//*********************************warning!!!!!!!after pause,clear the lines and planes!!!!
-
+		if (!goUpdate) {
+			if (clock() >= lastTime + 3000) {
+				for (list_P::iterator it = Plane::planes.begin(); it != Plane::planes.end(); ++it)
+					removePlane(*it, scene);
+				Plane::planes.clear();
+				runner->setScene<EndScene>();
+			}
+			return;
+		}
 
 		//update the planes
-		for (list_P::iterator it = Plane::planes.begin(); it != Plane::planes.end(); ++it) {
+		for (list_P::iterator it = Plane::planes.begin(); it != Plane::planes.end(); ) {
 			using Tools::square;
 			if (!(*it)->lines.empty()) {
 				using Tools::square;
 				//first,change position
 				Line*line = (*it)->lines.front();
 				if (square(Plane::moveVelocity) > square((*it)->position.x - line->to.x) + square((*it)->position.y - line->to.y)) {
+					if (line->isAttachingAirport) {
+						scene->setScore(ScoreManager::addPlaneReward());
+						//set flag,and delay the deletion to happen*****************
+						list_P::iterator next = it++;
+						removePlane(*next,scene);
+						Plane::planes.erase(next);
+						continue;
+					}
 					scene->removeObject(static_cast<Object*>(line->UILine));
 					delete line->UILine;
 					delete line;
@@ -99,6 +125,7 @@ namespace ViewModel {
 				//change line position
 				static_cast<LineObject*>(line->UILine)->position = line->from = (*it)->position;
 				(*it)->rotation = line->to - line->from;
+
 			}
 		out:
 			double scale = Plane::moveVelocity / sqrt(square((*it)->rotation.x) + square((*it)->rotation.y));
@@ -106,18 +133,45 @@ namespace ViewModel {
 			double deltaY = (*it)->rotation.y*scale;
 			(*it)->position.x += deltaX;
 			(*it)->position.y += deltaY;
-			static_cast<PlaneObject*>((*it)->UIPicture)->setMidPosition((*it)->position);
+			PlaneObject*UIPlane = static_cast<PlaneObject*>((*it)->UIPicture);
+			UIPlane->setMidPosition((*it)->position);
 			static_cast<CircleObject*>((*it)->circle.UICircle)->setPosition((*it)->position);
 
+			//change rotation
+			double arc = acos((*it)->rotation.x / sqrt(square((*it)->rotation.x) + square((*it)->rotation.y)));
+			if ((*it)->rotation.y > 0)
+				arc = 1.5*CV_PI - arc;
+			else
+				arc = arc - 0.5*CV_PI;
+			double r = arc * 180 / CV_PI - UIPlane->getRotation();
+			while (r > 180.0)
+				r -= 360.0;
+			while (r < -180.0)
+				r += 360.0;
+			if (r > Plane::rotateVelocity)
+				UIPlane->setRotation(UIPlane->getRotation() + Plane::rotateVelocity);
+			if (r < -Plane::rotateVelocity)
+				UIPlane->setRotation(UIPlane->getRotation() - Plane::rotateVelocity);
+
+			++it;//sometimes won't
 		}
 
 		//check if crush
-		/*
 		for (list_P::iterator it = Plane::planes.begin(); it != Plane::planes.end(); ++it) {
 			for (list_P::iterator it2 = Plane::planes.begin(); it2 != Plane::planes.end(); ++it2) {
-				if(square(Plane::ordinaryRadius)<=square((*it)->))
+				if (*it == *it2)
+					continue;
+				using Tools::square;
+				if (square(Plane::ordinaryRadius*2) >= square((*it)->position.x - (*it2)->position.x) + square((*it)->position.y - (*it2)->position.y)) {
+					static_cast<CircleObject*>((*it)->circle.UICircle)->radius = Plane::ordinaryRadius;
+					static_cast<CircleObject*>((*it2)->circle.UICircle)->radius = Plane::ordinaryRadius;
+					lastTime = clock();
+					//scene->pause();
+					goUpdate = false;
+					return;
+				}
 			}
-		}*/
+		}
 
 		//set new plane
 		time_t currentTime = clock();
@@ -159,6 +213,9 @@ namespace ViewModel {
 	void GameSceneActions::startGameScene(View::GameScene*scene) {
 		using namespace Model;
 		using namespace View;
+		goUpdate = true;
+		ChosenPlane::chosenPlane = nullptr;
+		ChosenPlane::isFirstTime = false;
 
 		ScoreManager::clearScore();
 		scene->setScore(0);
@@ -191,5 +248,20 @@ namespace ViewModel {
 		}
 		newRotate = (double)rand() / RAND_MAX * (PlaneCreator::angular[side][1] - PlaneCreator::angular[side][0]) + PlaneCreator::angular[side][0];
 		return;
+	}
+
+	void GameSceneActions::removePlane(void*p,View::GameScene*scene) {
+		using namespace Model;
+		using namespace View;
+		Plane*plane = static_cast<Plane*>(p);
+		scene->removeObject(static_cast<Object*>(plane->circle.UICircle));
+		delete plane->circle.UICircle;
+		for (list<Line*>::iterator it = plane->lines.begin(); it != plane->lines.end(); ++it) {
+			scene->removeObject(static_cast<Object*>((*it)->UILine));
+			delete (*it)->UILine;
+		}
+		scene->removeObject(static_cast<Object*>(plane->UIPicture));
+		delete plane->UIPicture;
+		delete plane;
 	}
 }

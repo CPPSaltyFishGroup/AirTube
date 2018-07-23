@@ -15,20 +15,23 @@ namespace View {
 		srand(time(0));
 		ViewModel::GameSceneActions::startGameScene(this);
 	}
+	GameScene::~GameScene() {
+
+	}
 
 	//do update,then print.
 	void GameScene::update() {
-		if (!doUpdate)
-			return;
 		using namespace cv;
 		cvSet(&img, Scalar(255, 255, 255), nullptr);
 		//(*images.begin())->print(canvasToShow);
-		for (set_O::iterator it = images.begin(); it != images.end(); ++it) {
-			(*it)->print(canvasToShow);
-		}
 		ViewModel::GameSceneActions::sceneUpdate(this);
+		if (doUpdate) {
+			for (set_O::iterator it = images.begin(); it != images.end(); ++it) {
+				(*it)->print(canvasToShow);
+			}
+			imshow(MainGameRunner::getMainGameRunner()->gameName, canvasToShow);
+		}
 
-		imshow(MainGameRunner::getMainGameRunner()->gameName, canvasToShow);
 	}
 
 	void GameScene::addAndPrintObject(Object*object) {

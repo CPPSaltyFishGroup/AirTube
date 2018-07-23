@@ -28,5 +28,6 @@ namespace View {
 		void removeObject(Object*);
 		void pause();
 		void goOn();
+		bool isPaused();
 	};
 }

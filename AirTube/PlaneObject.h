@@ -11,6 +11,7 @@ namespace View {
 		PlaneObject(int depth, const Point&point);
 		void print(const Mat&canvas);
 		void setRotation(double rotate);
+		double getRotation();
 		void setPosition(const Point&point);
 		void setMidPosition(const Point&point);
 		void onClick(bool isLeft);

@@ -2,8 +2,9 @@
 namespace Model {
 	int ScoreManager::planeReward = 3;
 	int ScoreManager::score = 0;
-	void ScoreManager::addPlaneReward() {
+	int ScoreManager::addPlaneReward() {
 		score += planeReward;
+		return score;
 	}
 	void ScoreManager::setPlaneReward(int t) {
 		planeReward = t;

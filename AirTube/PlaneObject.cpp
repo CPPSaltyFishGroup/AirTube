@@ -40,4 +40,7 @@ namespace View {
 	void PlaneObject::setPosition(const Point&point) {
 		position = point;
 	}
+	double PlaneObject::getRotation() {
+		return rotate;
+	}
 }
