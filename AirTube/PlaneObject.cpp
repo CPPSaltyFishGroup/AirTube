@@ -5,8 +5,10 @@
 #include <opencv2/highgui/highgui.hpp>
 #include<opencv2/imgproc.hpp>
 namespace View {
+	Mat PlaneObject::white = Mat(200, 200, CV_8UC4, cv::Scalar(255, 255, 255, 0));
+
 	PlaneObject::PlaneObject(int depth, const Point&point) :
-		PictureObject(depth, point, "GreyPlane.png") {
+		PictureObject(depth, point, "GreyPlane.png"),alpha(1.0) {
 		position.x -= picture.cols / 2;
 		position.y -= picture.rows / 2;
 		rotatedPic = Mat(picture.rows, picture.cols, CV_8UC4, cv::Scalar(255, 255, 255, 255));
@@ -27,6 +29,8 @@ namespace View {
 		if (position.x >= canvas.cols || position.y >= canvas.rows ||
 			position.x + picture.cols <= 0 || position.y + picture.rows <= 0)
 			return;
+		addWeighted(picture, alpha, white(Rect(0, 0, picture.cols, picture.rows)), 1.0 - alpha, 0.0, picture);
+		addWeighted(rotatedPic, alpha, white(Rect(0, 0, rotatedPic.cols, rotatedPic.rows)), 1.0 - alpha, 0.0, rotatedPic);
 		SHOW_PICTURE(rotatedPic);
 	}
 	//only used by scene

@@ -3,9 +3,11 @@
 namespace View {
 	class PlaneObject :public PictureObject {
 	private:
+		static Mat white;
 		double rotate;
 		Mat rotatedPic;
 	public:
+		double alpha;
 		void*logicPlane;
 		//the position must be mid point position!!
 		PlaneObject(int depth, const Point&point);

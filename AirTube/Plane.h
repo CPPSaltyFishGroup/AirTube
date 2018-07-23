@@ -12,9 +12,12 @@ namespace Model {
 		static double moveVelocity;
 		static list<Plane*>planes;
 		static int ordinaryRadius;
+		static int delayTime;
 
+		Plane();
 
 		void*UIPicture;
+		int overFlag;
 		Point2d rotation;
 		Point2d position;
 		int radius;

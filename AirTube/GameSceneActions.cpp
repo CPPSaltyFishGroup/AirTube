@@ -23,6 +23,8 @@ namespace ViewModel {
 	void GameSceneActions::planeClick(const PlaneObject*planeObject) {
 		using namespace View;
 		using namespace Model;
+		if (static_cast<Plane*>(planeObject->logicPlane)->overFlag)
+			return;
 		if (ChosenPlane::chosenPlane != nullptr) {
 			if (ChosenPlane::chosenPlane != planeObject->logicPlane)
 				noChoose();
@@ -99,6 +101,16 @@ namespace ViewModel {
 
 		//update the planes
 		for (list_P::iterator it = Plane::planes.begin(); it != Plane::planes.end(); ) {
+			if ((*it)->overFlag) {
+				if ((*it)->overFlag + Plane::delayTime <= clock()) {
+					list_P::iterator next = it++;
+					removePlane(*next, scene);
+					Plane::planes.erase(next);
+				}
+				else
+					++it;
+				continue;
+			}
 			using Tools::square;
 			if (!(*it)->lines.empty()) {
 				using Tools::square;
@@ -106,11 +118,12 @@ namespace ViewModel {
 				Line*line = (*it)->lines.front();
 				if (square(Plane::moveVelocity) > square((*it)->position.x - line->to.x) + square((*it)->position.y - line->to.y)) {
 					if (line->isAttachingAirport) {
+						if (ChosenPlane::chosenPlane == (*it))
+							noChoose();
+						static_cast<PlaneObject*>((*it)->UIPicture)->alpha = 0.95;
 						scene->setScore(ScoreManager::addPlaneReward());
+						(*it)->overFlag = clock();
 						//set flag,and delay the deletion to happen*****************
-						list_P::iterator next = it++;
-						removePlane(*next,scene);
-						Plane::planes.erase(next);
 						continue;
 					}
 					scene->removeObject(static_cast<Object*>(line->UILine));
@@ -158,7 +171,21 @@ namespace ViewModel {
 
 		//check if crush
 		for (list_P::iterator it = Plane::planes.begin(); it != Plane::planes.end(); ++it) {
+			if ((*it)->overFlag)
+				continue;
+			if ((*it)->position.y<PlaneCreator::certain[0] ||
+				(*it)->position.x<PlaneCreator::certain[1] ||
+				(*it)->position.y>PlaneCreator::certain[2] ||
+				(*it)->position.x>PlaneCreator::certain[3]) {
+				static_cast<CircleObject*>((*it)->circle.UICircle)->radius = Plane::ordinaryRadius*2;
+				lastTime = clock();
+				//scene->pause();
+				goUpdate = false;
+				return;
+			}
 			for (list_P::iterator it2 = Plane::planes.begin(); it2 != Plane::planes.end(); ++it2) {
+				if ((*it2)->overFlag)
+					continue;
 				if (*it == *it2)
 					continue;
 				using Tools::square;
