@@ -17,8 +17,8 @@ namespace View {
 			const Point&position,
 			int radius=50,
 			const Scalar&scalar=cvScalarAll(0),
-			int thickness=2,
-			int lineType=8);
+			int thickness=1,
+			int lineType=16);
 		void print(const Mat&canvas);
 		bool mouseIn(const Point&point);
 		void setPosition(const Point&point);
