@@ -8,11 +8,11 @@ namespace Model {
 	using cv::Point2d;
 	using std::list;
 	struct Plane {
-		static double rotateVelocity;
-		static double moveVelocity;
+		const static double rotateVelocity;
+		const static double moveVelocity;
 		static list<Plane*>planes;
-		static int ordinaryRadius;
-		static int delayTime;
+		const static int ordinaryRadius;
+		const static int delayTime;
 
 		Plane();
 

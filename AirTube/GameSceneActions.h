@@ -13,10 +13,6 @@ namespace ViewModel {
 		static time_t lastTime,timeChange;
 		static bool goUpdate;
 
-		static int planeDepth;
-		static int circleDepth;
-		static int lineDepth;
-
 		static Point newlyPosition;
 		static double newRotate;
 		static void generatePositionAndVelocity();

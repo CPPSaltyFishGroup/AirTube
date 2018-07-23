@@ -9,7 +9,13 @@ namespace View {
 	GameScene::GameScene() {
 		MainBackgroundObject*background = new MainBackgroundObject(0x7fffffff, Point(0, 0), "HiresScreenshot.png");
 		addObject(background);
-		TextObject*score = new TextObject(-10086, Point(0, 620), CV_FONT_HERSHEY_SIMPLEX, 1);
+		TextObject*score = new TextObject(
+			0x7ffffffe,
+			Point(0, 630),
+			CV_FONT_HERSHEY_SIMPLEX,
+			1.0,
+			Scalar(255,255,255)
+		);
 		this->score = score;
 		addObject(score);
 		srand(time(0));
@@ -24,8 +30,8 @@ namespace View {
 		using namespace cv;
 		cvSet(&img, Scalar(255, 255, 255), nullptr);
 		//(*images.begin())->print(canvasToShow);
-		ViewModel::GameSceneActions::sceneUpdate(this);
 		if (doUpdate) {
+			ViewModel::GameSceneActions::sceneUpdate(this);
 			for (set_O::iterator it = images.begin(); it != images.end(); ++it) {
 				(*it)->print(canvasToShow);
 			}

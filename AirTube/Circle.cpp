@@ -1,4 +1,4 @@
 #include"Circle.h"
 namespace Model {
-	Scalar Circle::chosenColor=Scalar(0,0,255);
+	Scalar Circle::chosenColor=Scalar(100,100,255);
 }

@@ -122,6 +122,7 @@
     <ClCompile Include="ChosenPlane.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleObject.cpp" />
+    <ClCompile Include="DepthManager.cpp" />
     <ClCompile Include="EndButtonObject.cpp" />
     <ClCompile Include="EndScene.cpp" />
     <ClCompile Include="EndSceneActions.cpp" />
@@ -131,6 +132,7 @@
     <ClCompile Include="LineObject.cpp" />
     <ClCompile Include="MainBackgroundObject.cpp" />
     <ClCompile Include="PauseButtonObject.cpp" />
+    <ClCompile Include="PauseManager.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="PlaneCreator.cpp" />
     <ClCompile Include="PlaneObject.cpp" />
@@ -154,6 +156,7 @@
     <ClInclude Include="ChosenPlane.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleObject.h" />
+    <ClInclude Include="DepthManager.h" />
     <ClInclude Include="EndButtonObject.h" />
     <ClInclude Include="EndScene.h" />
     <ClInclude Include="EndSceneActions.h" />
@@ -163,6 +166,7 @@
     <ClInclude Include="LineObject.h" />
     <ClInclude Include="MainBackgroundObject.h" />
     <ClInclude Include="PauseButtonObject.h" />
+    <ClInclude Include="PauseManager.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="PlaneCreator.h" />
     <ClInclude Include="PlaneObject.h" />

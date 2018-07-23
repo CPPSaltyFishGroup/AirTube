@@ -9,14 +9,13 @@
 #include"ChosenPlane.h"
 #include"LineObject.h"
 #include"EndScene.h"
+#include"PauseManager.h"
+#include"DepthManager.h"
 namespace ViewModel {
 
 	time_t GameSceneActions::lastTime=0;
 	time_t GameSceneActions::timeChange = 0;
 	bool  GameSceneActions::goUpdate = false;
-	int GameSceneActions::planeDepth = -30000;
-	int GameSceneActions::circleDepth = -10000;
-	int GameSceneActions::lineDepth = -20000;
 	Point GameSceneActions::newlyPosition=Point(0,0);
 	double GameSceneActions::newRotate=0.0;
 
@@ -71,7 +70,7 @@ namespace ViewModel {
 				else
 					line->from = plane->lines.back()->to;
 				LineObject*UILine = new LineObject(
-					lineDepth++,
+					DepthManager::lineDepth++,
 					line->from,
 					line->to,
 					line->isAttachingAirport ? Line::attachingColor : Line::normalColor
@@ -91,7 +90,7 @@ namespace ViewModel {
 		typedef std::list<Plane*> list_P;
 
 		if (!goUpdate) {
-			if (clock() >= lastTime + 3000) {
+			if (clock() >= lastTime + PauseManager::pauseTime) {
 				for (list_P::iterator it = Plane::planes.begin(); it != Plane::planes.end(); ++it)
 					removePlane(*it, scene);
 				Plane::planes.clear();
@@ -178,7 +177,7 @@ namespace ViewModel {
 				(*it)->position.x<PlaneCreator::certain[1] ||
 				(*it)->position.y>PlaneCreator::certain[2] ||
 				(*it)->position.x>PlaneCreator::certain[3]) {
-				static_cast<CircleObject*>((*it)->circle.UICircle)->radius = Plane::ordinaryRadius*2;
+				static_cast<CircleObject*>((*it)->circle.UICircle)->radius = Plane::ordinaryRadius*3;
 				lastTime = clock();
 				//scene->pause();
 				goUpdate = false;
@@ -219,7 +218,7 @@ namespace ViewModel {
 		using View::CircleObject;
 		generatePositionAndVelocity();
 		Plane*t = new Plane{};
-		PlaneObject*UIPlane = new PlaneObject(planeDepth++, newlyPosition);
+		PlaneObject*UIPlane = new PlaneObject(Model::DepthManager::planeDepth++, newlyPosition);
 		t->UIPicture = UIPlane;
 		UIPlane->logicPlane = t;
 		//logicPlane->UIPicture = UIPlane;
@@ -229,7 +228,8 @@ namespace ViewModel {
 		t->rotation.x = -sin(newRotate * 2 * CV_PI / 360.0);
 		t->rotation.y = -cos(newRotate * 2 * CV_PI / 360.0);
 		t->radius = Plane::ordinaryRadius;//can be set in namespace Model
-		CircleObject*UICircle = new CircleObject(circleDepth++, newlyPosition);
+		CircleObject*UICircle = new CircleObject(Model::DepthManager::circleDepth++, newlyPosition);
+		UICircle->color = Model::Circle::chosenColor;
 		scene->addObject(UICircle);
 		UICircle->radius = 0;
 
@@ -247,9 +247,8 @@ namespace ViewModel {
 
 		ScoreManager::clearScore();
 		scene->setScore(0);
-		int airportDepth = 300;
 		for (list<Airport>::iterator it = Airport::airports.begin(); it != Airport::airports.end(); ++it) {
-			PictureObject*pic = new BackgroundObject(airportDepth++, it->position, "airport.png");
+			PictureObject*pic = new BackgroundObject(DepthManager::airportDepth++, it->position, it->name);
 			scene->addObject(pic);
 			it->airportPicture = pic;
 		}
