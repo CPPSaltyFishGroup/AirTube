@@ -1,0 +1,8 @@
+开始界面
+	开始按钮 startbutton1.png startbutton2.png
+	退出按钮 exitgame1.png exitgame2.png
+游戏界面
+	暂停按钮 pause1.png pause2.png
+结束界面
+	重开按钮 restart1.png restart2.png
+	结束按钮 endgame1.png endgame2.png
