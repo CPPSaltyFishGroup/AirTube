@@ -16,7 +16,6 @@ namespace View {
 		thickness(thickness),
 		lineType(lineType){
 
-		//************************ask for score
 		attribute = 0;//0+0
 	}
 
